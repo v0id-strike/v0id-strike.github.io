@@ -17,14 +17,25 @@ module.exports = function(eleventyConfig) {
     // Custom filter for category extraction
     eleventyConfig.addFilter("getCategories", function(collection) {
         const categories = new Set();
-        collection.getAll().forEach(item => {
+        
+        // Get all posts collection
+        const posts = eleventyConfig.collections.posts || [];
+        
+        // Extract categories from each post
+        posts.forEach(item => {
             if (item.data.categories) {
                 item.data.categories.forEach(cat => categories.add(cat));
             } else if (item.data.category) {
                 categories.add(item.data.category);
             }
         });
+        
         return Array.from(categories).sort();
+    });
+
+    // Configure collections
+    eleventyConfig.addCollection("posts", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("src/posts/**/*.md");
     });
 
     return {
