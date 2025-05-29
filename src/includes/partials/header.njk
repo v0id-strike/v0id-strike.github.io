@@ -1,0 +1,10 @@
+<header>
+    <h1>Void-Strike</h1>
+    <p>Cyber Security Research & Notes</p>
+    <nav>
+        <a href="/">Home</a>
+        {% for cat in collections.all | getCategories %}
+            <a href="/{{ cat | slug }}/">{{ cat }}</a>
+        {% endfor %}
+    </nav>
+</header>

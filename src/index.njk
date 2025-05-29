@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: Void-Strike Cyber Security
+---
+
+<h2>Latest Posts</h2>
+
+{% for post in collections.posts | reverse %}
+    <article class="post">
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p><small>Posted in: 
+            {% if post.data.categories %}
+                {% for cat in post.data.categories %}
+                    <a href="/{{ cat | slug }}/" class="category">{{ cat }}</a>
+                {% endfor %}
+            {% elif post.data.category %}
+                <a href="/{{ post.data.category | slug }}/" class="category">{{ post.data.category }}</a>
+            {% endif %}
+        </small></p>
+        <p>{{ post.data.description }}</p>
+        <a href="{{ post.url }}">Read more...</a>
+    </article>
+{% endfor %}
