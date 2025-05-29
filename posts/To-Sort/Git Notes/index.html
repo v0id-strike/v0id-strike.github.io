@@ -1,0 +1,62 @@
+<h2>🔍 Compare Branches</h2>
+<h3>🔹 Code Differences</h3>
+<pre><code class="language-bash">git diff develop..main           # Changes in main not in develop
+git diff main..develop           # Changes in develop not in main
+</code></pre>
+<h3>🔹 File List Only</h3>
+<pre><code class="language-bash">git diff --name-only develop..main
+</code></pre>
+<h3>🔹 Commit Differences</h3>
+<pre><code class="language-bash">git log develop..main            # Commits in main but not in develop
+git log main..develop            # Commits in develop but not in main
+git log develop..main --oneline  # Short version
+</code></pre>
+<hr>
+<h2>🔁 Get Changes from <code>main</code> into <code>develop</code> (without merging)</h2>
+<h3>🔹 Cherry-pick commits</h3>
+<pre><code class="language-bash">git checkout develop
+git cherry-pick &lt;commit-hash&gt;    # Pick specific commits from main
+</code></pre>
+<h3>🔹 Rebase develop onto main</h3>
+<pre><code class="language-bash">git checkout develop
+git rebase main
+</code></pre>
+<blockquote>
+<p>Rewrites history: places your <code>develop</code> commits on top of <code>main</code>.</p>
+</blockquote>
+<h3>🔹 Checkout specific files from main</h3>
+<pre><code class="language-bash">git checkout main -- path/to/file
+git commit -m &quot;Take file from main&quot;
+</code></pre>
+<h3>🔹 Use a patch</h3>
+<pre><code class="language-bash">git format-patch -1 &lt;commit&gt; --stdout &gt; patch.diff
+git checkout develop
+git apply patch.diff
+</code></pre>
+<hr>
+<h2>⏪ Revert to Last Push (Reset Local Branch to Remote)</h2>
+<h3>🔹 Hard reset to remote state</h3>
+<pre><code class="language-bash">git fetch origin
+git reset --hard origin/develop
+</code></pre>
+<blockquote>
+<p>Discards local commits &amp; uncommitted changes</p>
+</blockquote>
+<h3>🔹 Keep file changes, remove local commits</h3>
+<pre><code class="language-bash">git reset --soft origin/develop
+</code></pre>
+<h3>🔹 Also delete untracked files</h3>
+<pre><code class="language-bash">git clean -fd
+</code></pre>
+<hr>
+<h2>🗑️ Delete Branches</h2>
+<h3>🔹 Delete Local Branch</h3>
+<pre><code class="language-bash">git branch -d branch-name        # Safe delete (if merged)
+git branch -D branch-name        # Force delete
+</code></pre>
+<h3>🔹 Delete Remote Branch</h3>
+<pre><code class="language-bash">git push origin --delete branch-name
+</code></pre>
+<h3>🔹 Clean up local stale remote refs</h3>
+<pre><code class="language-bash">git fetch --prune
+</code></pre>

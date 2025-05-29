@@ -1,0 +1,155 @@
+<p>Arch Linux is the ultimate choice for <strong>ricing</strong> due to its minimal, <strong>DIY approach</strong>, allowing complete control over system customization. With a <strong>rolling-release model</strong>, Arch provides <strong>cutting-edge software</strong> and access to the <strong>AUR (Arch User Repository)</strong>, making it perfect for installing and tweaking custom themes, window managers, and system utilities. Its <strong>lightweight nature</strong> ensures that only the components you need are installed, keeping your system <strong>clean, fast, and efficient</strong>—a dream setup for any ricer.</p>
+<p>📥 Download <strong>Arch ISO</strong> from <a href="https://archlinux.org/download/">here</a>.</p>
+<hr>
+<h2>📌 Phase 1: Installing Arch</h2>
+<h3>Boot into Live Environment</h3>
+<ol>
+<li><strong>Attach ISO</strong> and boot into Arch</li>
+<li>It should <strong>auto-login</strong></li>
+<li>Check storage devices:</li>
+</ol>
+<pre><code class="language-bash">lsblk
+</code></pre>
+<p><em>(Example: Assume your disk is <code>/dev/sda</code>)</em></p>
+<h3>Partition Disk</h3>
+<ol>
+<li>Run <code>cfdisk</code>:</li>
+</ol>
+<pre><code class="language-bash">cfdisk /dev/sda
+</code></pre>
+<ol start="2">
+<li>Select <strong>GPT</strong> partitioning</li>
+<li>Create partitions:
+<ul>
+<li><strong>EFI Partition</strong>:
+<ul>
+<li>Size: <strong>512MB</strong></li>
+<li>Type: <strong>EFI System</strong></li>
+</ul>
+</li>
+<li><strong>Root Partition</strong>:
+<ul>
+<li>Size: <strong>Remaining space</strong></li>
+<li>Type: <strong>Linux filesystem</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Write &amp; Quit</strong></li>
+</ol>
+<p>Check partitions with:</p>
+<pre><code class="language-bash">lsblk
+</code></pre>
+<h3>Format Partitions</h3>
+<ol>
+<li>Format <strong>EFI partition</strong>:</li>
+</ol>
+<pre><code class="language-bash">mkfs.fat -F32 /dev/sda1
+</code></pre>
+<ol start="2">
+<li>Format <strong>Root partition (Btrfs)</strong>:</li>
+</ol>
+<pre><code class="language-bash">mkfs.btrfs /dev/sda2
+</code></pre>
+<h3>Mount Partitions</h3>
+<ol>
+<li>Mount root partition:</li>
+</ol>
+<pre><code class="language-bash">mount /dev/sda2 /mnt
+</code></pre>
+<ol start="2">
+<li>Create and mount EFI partition:</li>
+</ol>
+<pre><code class="language-bash">mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+</code></pre>
+<ol start="3">
+<li>Install Base System</li>
+</ol>
+<pre><code class="language-bash">pacstrap /mnt base linux linux-firmware vim networkmanager
+</code></pre>
+<ol start="4">
+<li>Generate fstab</li>
+</ol>
+<pre><code class="language-bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+<h3>Chroot into System</h3>
+<pre><code class="language-bash">arch-chroot /mnt
+</code></pre>
+<ul>
+<li>Set Timezone</li>
+</ul>
+<pre><code class="language-bash">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc
+</code></pre>
+<ul>
+<li>Edit <code>/etc/locale.gen</code> and <strong>uncomment</strong>:</li>
+</ul>
+<pre><code>en_US.UTF-8 UTF-8
+</code></pre>
+<ul>
+<li>Generate locale:</li>
+</ul>
+<pre><code class="language-bash">locale-gen
+</code></pre>
+<ul>
+<li>Set default locale:</li>
+</ul>
+<pre><code class="language-bash">echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf
+</code></pre>
+<ul>
+<li>Set Hostname</li>
+</ul>
+<pre><code class="language-bash">echo &quot;myhostname&quot; &gt; /etc/hostname
+</code></pre>
+<ul>
+<li>Edit <code>/etc/hosts</code>:</li>
+</ul>
+<pre><code>127.0.0.1  localhost
+::1        localhost
+127.0.1.1  myhostname.localdomain myhostname
+</code></pre>
+<ul>
+<li>Set Root Password</li>
+</ul>
+<pre><code class="language-bash">passwd
+</code></pre>
+<ul>
+<li>Install Bootloader</li>
+</ul>
+<pre><code class="language-bash">pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<ul>
+<li>Finish Installation</li>
+</ul>
+<pre><code class="language-bash">exit
+umount -R /mnt
+reboot
+</code></pre>
+<hr>
+<h2>📌 Phase 2: Post-Installation (After Reboot)</h2>
+<ul>
+<li>Login as root, then:</li>
+<li>Enable NetworkManager:</li>
+</ul>
+<pre><code class="language-bash">systemctl enable NetworkManager
+systemctl start NetworkManager
+</code></pre>
+<ul>
+<li>Create a new user:</li>
+</ul>
+<pre><code class="language-bash">useradd -m -G wheel -s /bin/bash myuser
+passwd myuser
+</code></pre>
+<ul>
+<li>Give sudo privileges:</li>
+</ul>
+<pre><code class="language-bash">pacman -S sudo
+echo &quot;myuser ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers
+</code></pre>
+<hr>
+<h2>Final Thoughts</h2>
+<p>You’ve successfully set up <strong>Arch</strong> in your home lab. 🔥<br>
+💡 Use <code>archinstall</code> command, if you afraid of manual installation 🚀</p>

