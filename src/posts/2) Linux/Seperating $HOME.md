@@ -1,6 +1,6 @@
 ---
 title: Separating $HOME
-date: 2015-05-29
+date: 2025-05-29
 categories:
   - Linux
   - Partition
