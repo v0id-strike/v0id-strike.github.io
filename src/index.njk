@@ -24,7 +24,7 @@ title: .voidrc
             </div>
             <div class="terminal-body">
                 <div class="tree-view">
-                    {% set posts = collections.posts %}
+                    {% set posts = collections.posts | sortByOrder %}
                     {% set currentGroup = "" %}
                     {% set currentSubgroup = "" %}
                     
