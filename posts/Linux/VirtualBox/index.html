@@ -1,0 +1,49 @@
+<h2><strong>1. Install Required Packages</strong></h2>
+<p>Ensure you have <strong>ALL</strong> VirtualBox components:</p>
+<pre><code class="language-bash">sudo pacman -Sy virtualbox virtualbox-host-dkms virtualbox-guest-iso
+</code></pre>
+<hr>
+<h2><strong>2. Load Kernel Modules</strong></h2>
+<p>VirtualBox requires kernel modules to create virtual networks:</p>
+<pre><code class="language-bash">sudo modprobe vboxdrv vboxnetadp vboxnetflt
+</code></pre>
+<p><strong>Make modules load at boot</strong>:</p>
+<pre><code class="language-bash">sudo tee /etc/modules-load.d/virtualbox.conf &lt;&lt;EOF
+vboxdrv
+vboxnetadp
+vboxnetflt
+EOF
+</code></pre>
+<hr>
+<h2><strong>3. Rebuild VirtualBox Kernel Modules</strong></h2>
+<p>This is <strong>critical</strong> if your kernel updated recently:</p>
+<pre><code class="language-bash">sudo vboxreload
+</code></pre>
+<hr>
+<h2><strong>4. Add User to <code>vboxusers</code> Group</strong></h2>
+<pre><code class="language-bash">sudo usermod -aG vboxusers $USER
+</code></pre>
+<p><strong>Log out and back in</strong> to apply group changes.</p>
+<hr>
+<h2><strong>5. (Optional) Secure Boot Workaround</strong></h2>
+<p>If you use Secure Boot:</p>
+<pre><code class="language-bash">sudo pacman -S virtualbox-secureboot
+sudo virtualbox-secureboot enroll
+</code></pre>
+<p><strong>Reboot</strong> and enroll the key in your BIOS/UEFI.</p>
+<hr>
+<h2><strong>Troubleshooting</strong></h2>
+<ul>
+<li>
+<p><strong>Kernel Headers Mismatch</strong>? Ensure <code>linux-headers</code> matches your kernel:</p>
+<pre><code class="language-bash">uname -r
+sudo pacman -S linux-headers
+</code></pre>
+</li>
+<li>
+<p>Still broken? Nuke and rebuild:</p>
+<pre><code class="language-bash">sudo rmmod vboxdrv vboxnetadp vboxnetflt
+sudo modprobe vboxdrv vboxnetadp vboxnetflt
+</code></pre>
+</li>
+</ul>
