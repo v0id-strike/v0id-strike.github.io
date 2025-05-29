@@ -43,27 +43,98 @@ a:hover {
     padding: 2rem;
 }
 
-.post {
-    background-color: rgba(10, 10, 10, 0.7);
-    border-left: 3px solid var(--neon);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 15px var(--glow);
-}
-
-.category-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+/* Terminal Container Styles */
+.terminal-container {
+    background-color: var(--void);
+    border: 1px solid var(--neon);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    font-family: 'Courier New', monospace;
     margin: 2rem 0;
 }
 
-.category {
-    background-color: var(--accent);
-    color: var(--void);
+.terminal-header {
+    background: #1a1a1a;
     padding: 0.5rem 1rem;
-    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--neon);
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-button.red { background: #ff5f56; }
+.terminal-button.yellow { background: #ffbd2e; }
+.terminal-button.green { background: #27c93f; }
+
+.terminal-title {
+    color: #aaa;
+    margin-left: 1rem;
+    font-size: 0.8rem;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+}
+
+.glow-text {
+    color: var(--neon);
+    text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+/* Tree View Styles */
+.tree-view {
+    margin-left: 1rem;
+}
+
+.tree-folder {
+    margin-bottom: 1rem;
+}
+
+.folder-icon, .file-icon {
+    margin-right: 8px;
+    color: var(--neon);
+}
+
+.folder-name {
+    color: var(--accent);
     font-weight: bold;
+}
+
+.tree-files {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.tree-file {
+    margin-bottom: 0.5rem;
+}
+
+.file-link {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.file-link:hover {
+    text-decoration: underline;
+    color: var(--neon);
+}
+
+.file-description {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
 }
 
 .footer {
@@ -77,19 +148,4 @@ a:hover {
 
 .footer p {
     margin: 0.5rem 0;
-}
-
-/* Terminal-like elements */
-.terminal {
-    background-color: #000;
-    color: var(--neon);
-    padding: 1rem;
-    border-radius: 5px;
-    font-family: monospace;
-    position: relative;
-}
-
-.terminal::before {
-    content: "> ";
-    color: var(--neon);
 }
