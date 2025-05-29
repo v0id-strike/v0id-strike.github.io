@@ -13,42 +13,73 @@ title: .voidrc
 <section id="notes" class="section">
     <div class="container">
         <h2 class="section-title">Security Notes</h2>
-        <div class="tree-view">
-            {% set posts = collections.posts %}
-            {% set currentGroup = "" %}
-            
-            {% for post in posts %}
-                {% set path = post.filePathStem | replace('/posts/', '') %}
-                {% set pathParts = path.split('/') %}
-                {% set group = pathParts[0] %}
-                
-                {% if group != currentGroup %}
-                    {% if not loop.first %}
-                        </div>
-                    </div>
-                    {% endif %}
-                    <div class="tree-folder">
-                        <div class="folder-header">
-                            <span class="folder-icon">📁</span>
-                            <span class="folder-name">{{ group }}</span>
-                        </div>
-                        <div class="tree-files">
-                    {% set currentGroup = group %}
-                {% endif %}
-                
-                <div class="tree-file">
-                    <span class="file-icon">📄</span>
-                    <a href="{{ post.url }}" class="file-link">{{ post.data.title }}</a>
-                    {% if post.data.description %}
-                        <span class="file-description">// {{ post.data.description }}</span>
-                    {% endif %}
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button red"></span>
+                    <span class="terminal-button yellow"></span>
+                    <span class="terminal-button green"></span>
                 </div>
-                
-                {% if loop.last %}
-                    </div>
+                <span class="terminal-title">tree -L 3 /notes</span>
+            </div>
+            <div class="terminal-body">
+                <div class="tree-view">
+                    {% set posts = collections.posts %}
+                    {% set currentGroup = "" %}
+                    {% set currentSubgroup = "" %}
+                    
+                    {% for post in posts %}
+                        {% set path = post.filePathStem | replace('/posts/', '') %}
+                        {% set pathParts = path.split('/') %}
+                        {% set group = pathParts[0] %}
+                        {% set subgroup = pathParts[1] if pathParts.length > 1 else "" %}
+                        
+                        {% if group != currentGroup %}
+                            {% if not loop.first %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">{{ group }}</span>
+                                </div>
+                                <div class="tree-files">
+                            {% set currentGroup = group %}
+                            {% set currentSubgroup = "" %}
+                        {% endif %}
+                        
+                        {% if subgroup and subgroup != currentSubgroup %}
+                            <div class="tree-subfolder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">└── 📁</span>
+                                    <span class="folder-name">{{ subgroup }}</span>
+                                </div>
+                                <div class="tree-files">
+                        {% endif %}
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">{% if subgroup %}    {% endif %}└── 📄</span>
+                            <a href="{{ post.url }}" class="file-link">{{ post.data.title }}</a>
+                            {% if post.data.description %}
+                                <span class="file-description">// {{ post.data.description }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        {% if subgroup and subgroup != currentSubgroup %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% set currentSubgroup = subgroup %}
+                        
+                        {% if loop.last %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-                {% endif %}
-            {% endfor %}
+            </div>
         </div>
     </div>
 </section>
