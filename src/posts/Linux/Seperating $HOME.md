@@ -1,5 +1,5 @@
 ---
-title: Post Title
+title: Separating $HOME
 date: 2015-05-29
 categories:
   - Linux
