@@ -13,8 +13,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
-      - run: rm -rf docs/ 2> /dev/null
-      - run: npm run build
+      - run: rm -rf docs/ && npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

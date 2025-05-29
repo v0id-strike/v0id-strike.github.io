@@ -15,14 +15,11 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/images");
 
     // Custom filter for category extraction
-    eleventyConfig.addFilter("getCategories", function(collection) {
+    eleventyConfig.addFilter("getCategories", function(collections) {
         const categories = new Set();
         
-        // Get all posts collection
-        const posts = eleventyConfig.collections.posts || [];
-        
-        // Extract categories from each post
-        posts.forEach(item => {
+        // Get all items from all collections
+        Object.values(collections).flat().forEach(item => {
             if (item.data.categories) {
                 item.data.categories.forEach(cat => categories.add(cat));
             } else if (item.data.category) {
@@ -33,15 +30,10 @@ module.exports = function(eleventyConfig) {
         return Array.from(categories).sort();
     });
 
-    // Configure collections
-    eleventyConfig.addCollection("posts", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("src/posts/**/*.md");
-    });
-
     return {
         dir: {
             input: "src",
-            output: "docs" // GitHub Pages uses 'docs' folder
+            output: "docs"
         }
     };
 };

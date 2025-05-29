@@ -3,7 +3,7 @@
     <p>Cyber Security Research & Notes</p>
     <nav>
         <a href="/">Home</a>
-        {% for cat in collections.posts | getCategories %}
+        {% for cat in collections | getCategories %}
             <a href="/{{ cat | slug }}/">{{ cat }}</a>
         {% endfor %}
     </nav>

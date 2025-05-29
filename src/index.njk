@@ -5,7 +5,8 @@ title: Void-Strike Cyber Security
 
 <h2>Latest Posts</h2>
 
-{% for post in collections.posts | reverse %}
+{% set posts = collections.posts | reverse %}
+{% for post in posts %}
     <article class="post">
         <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
         <p><small>Posted in: 
