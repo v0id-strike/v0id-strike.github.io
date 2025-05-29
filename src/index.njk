@@ -22,11 +22,11 @@ title: Void-Strike Cyber Security
 {# Display the tree structure #}
 {% for group, groupPosts in groups %}
     <div class="note-group">
-        <h3 class="group-title">📁 {{ group }}</h3>
+        <h3 class="group-title">{{ group }}</h3>
         <div class="group-notes">
             {% for post in groupPosts %}
                 <div class="note">
-                    <a href="{{ post.url }}" class="note-link">📄 {{ post.data.title }}</a>
+                    <a href="{{ post.url }}" class="note-link">{{ post.data.title }}</a>
                     {% if post.data.description %}
                         <p class="note-description">{{ post.data.description }}</p>
                     {% endif %}
