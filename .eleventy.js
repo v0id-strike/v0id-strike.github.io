@@ -41,24 +41,16 @@ module.exports = function(eleventyConfig) {
             const pathA = a.filePathStem.replace('/posts/', '');
             const pathB = b.filePathStem.replace('/posts/', '');
             
-            // Split paths into parts
-            const partsA = pathA.split('/');
-            const partsB = pathB.split('/');
+            // Split paths into parts and get main category
+            const categoryA = pathA.split('/')[0];
+            const categoryB = pathB.split('/')[0];
             
             // Compare categories first
-            if (partsA[0] !== partsB[0]) {
-                return partsA[0].localeCompare(partsB[0]);
+            if (categoryA !== categoryB) {
+                return categoryA.localeCompare(categoryB);
             }
             
-            // If in same category, check for specific place
-            const placeA = a.data.place || 999;
-            const placeB = b.data.place || 999;
-            
-            if (placeA !== placeB) {
-                return placeA - placeB;
-            }
-            
-            // If same place, check for order
+            // If in same category, check for order
             const orderA = a.data.order || 999;
             const orderB = b.data.order || 999;
             

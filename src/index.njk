@@ -26,13 +26,11 @@ title: .voidrc
                 <div class="tree-view">
                     {% set posts = collections.posts | sortByOrder %}
                     {% set currentGroup = "" %}
-                    {% set currentSubgroup = "" %}
                     
                     {% for post in posts %}
                         {% set path = post.filePathStem | replace('/posts/', '') %}
                         {% set pathParts = path.split('/') %}
                         {% set group = pathParts[0] %}
-                        {% set subgroup = pathParts[1] if pathParts.length > 1 else "" %}
                         
                         {% if group != currentGroup %}
                             {% if not loop.first %}
@@ -46,32 +44,15 @@ title: .voidrc
                                 </div>
                                 <div class="tree-files">
                             {% set currentGroup = group %}
-                            {% set currentSubgroup = "" %}
-                        {% endif %}
-                        
-                        {% if subgroup and subgroup != currentSubgroup %}
-                            <div class="tree-subfolder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">└── 📁</span>
-                                    <span class="folder-name">{{ subgroup }}</span>
-                                </div>
-                                <div class="tree-files">
                         {% endif %}
                         
                         <div class="tree-file">
-                            <span class="file-icon">{% if subgroup %}    {% endif %}└── 📄</span>
+                            <span class="file-icon">└── 📄</span>
                             <a href="{{ post.url }}" class="file-link">{{ post.data.title | cleanTitle }}</a>
                             {% if post.data.description %}
                                 <span class="file-description">// {{ post.data.description }}</span>
                             {% endif %}
                         </div>
-                        
-                        {% if subgroup and subgroup != currentSubgroup %}
-                            </div>
-                        </div>
-                        {% endif %}
-                        
-                        {% set currentSubgroup = subgroup %}
                         
                         {% if loop.last %}
                             </div>
