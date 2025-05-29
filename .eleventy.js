@@ -19,6 +19,23 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByGlob("src/posts/**/*.md");
     });
 
+        // Add getCategories filter
+    eleventyConfig.addFilter("getCategories", function(collections) {
+        const categories = new Set();
+        
+        // Get all items from the posts collection
+        collections.posts.forEach(item => {
+            // Get the directory name from the file path
+            const path = item.filePathStem.replace('/posts/', '');
+            const category = path.split('/')[0];
+            if (category) {
+                categories.add(category);
+            }
+        });
+        
+        return Array.from(categories).sort();
+    });
+
     return {
         dir: {
             input: "src",
