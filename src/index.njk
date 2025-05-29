@@ -23,7 +23,8 @@ title: Void-Strike Cyber Security
       {% set currentGroup = "" %}
       {% for post in posts %}
         {% set path = post.filePathStem | replace('/posts/', '') %}
-        {% set group = path | truncate(path.length, true, '') | replace('/', '') %}
+        {% set pathParts = path.split('/') %}
+        {% set group = pathParts[0] %}
         
         {% if group != currentGroup %}
           {% if not loop.first %}
