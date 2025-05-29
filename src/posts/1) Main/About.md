@@ -1,7 +1,7 @@
 ---
-title: 1. Main
+title: About
 date: 2025-05-29
 categories:
-  - MAIN
+  - About
 ---
 
