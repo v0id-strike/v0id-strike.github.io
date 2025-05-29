@@ -14,20 +14,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/images");
 
-    // Custom filter for category extraction
-    eleventyConfig.addFilter("getCategories", function(collections) {
-        const categories = new Set();
-        
-        // Get all items from all collections
-        Object.values(collections).flat().forEach(item => {
-            if (item.data.categories) {
-                item.data.categories.forEach(cat => categories.add(cat));
-            } else if (item.data.category) {
-                categories.add(item.data.category);
-            }
-        });
-        
-        return Array.from(categories).sort();
+    // Add posts collection
+    eleventyConfig.addCollection("posts", function(collection) {
+        return collection.getFilteredByGlob("src/posts/**/*.md");
     });
 
     return {
