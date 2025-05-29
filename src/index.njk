@@ -48,16 +48,7 @@ title: .voidrc
                             {% set currentGroup = group %}
                             {% set currentSubgroup = "" %}
                         {% endif %}
-                        
-                        {% if subgroup and subgroup != currentSubgroup %}
-                            <div class="tree-subfolder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">└── 📁</span>
-                                    <span class="folder-name">{{ subgroup }}</span>
-                                </div>
-                                <div class="tree-files">
-                        {% endif %}
-                        
+                                                
                         <div class="tree-file">
                             <span class="file-icon">{% if subgroup %}    {% endif %}└── 📄</span>
                             <a href="{{ post.url }}" class="file-link">{{ post.data.title | cleanTitle }}</a>
