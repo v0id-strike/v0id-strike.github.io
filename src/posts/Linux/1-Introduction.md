@@ -1,3 +1,10 @@
+---
+title: Introduction
+date: 2025-05-29
+categories:
+  - Linux
+---
+
 Linux, as you might already know, is an operating system used for personal computers, servers, and even mobile devices. However, Linux stands as a fundamental pillar in cybersecurity, renowned for its robustness, flexibility, and open-source nature. In this section we are going to cover the essential knowledge for any cybersecurity professional. You can think of this as your first driving lesson for a new car, getting a basic understanding of the vehicle, what it consists of, and why it is the way it currently is.
 
 To begin, let's define what Linux is. Linux is an operating system, just like Windows, macOS, iOS, or Android. An operating system (OS) is software that manages all the hardware resources of a computer, facilitating communication between software applications and hardware components. Unlike some other operating systems, Linux comes in many different distributions—often called "distros"—which are versions of Linux tailored to various needs and preferences.
@@ -134,7 +141,3 @@ Terminal emulators and multiplexers are beneficial extensions for the terminal. 
 The most commonly used shell in Linux is the `Bourne-Again Shell` (`BASH`), and is part of the GNU project. Everything we do through the GUI we can do with the shell. The shell gives us many more possibilities to interact with programs and processes to get information faster. Besides, many processes can be easily automated with smaller or larger scripts that make manual work much easier.
 
 Besides Bash, there also exist other shells like [Tcsh/Csh](https://en.wikipedia.org/wiki/Tcsh), [Ksh](https://en.wikipedia.org/wiki/KornShell), [Zsh](https://en.wikipedia.org/wiki/Z_shell), [Fish](https://en.wikipedia.org/wiki/Friendly_interactive_shell) shell and others.
-
----
-
-**Tags:** #Linux

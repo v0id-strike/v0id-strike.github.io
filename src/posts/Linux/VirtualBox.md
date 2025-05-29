@@ -1,4 +1,10 @@
-# **How to set-up Virtualbox on Arch**
+---
+title: Virtualbox
+date: 2025-05-29
+categories:
+  - Linux
+  - Virtualbox
+---
 
 ## **1. Install Required Packages**
 
@@ -78,7 +84,3 @@ sudo virtualbox-secureboot enroll
   sudo rmmod vboxdrv vboxnetadp vboxnetflt
   sudo modprobe vboxdrv vboxnetadp vboxnetflt
   ```
-
----
-
-**Tags:** #Linux

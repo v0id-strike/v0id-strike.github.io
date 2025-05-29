@@ -1,3 +1,10 @@
+---
+title: BlackArch
+date: 2025-05-29
+categories:
+  - Lab
+---
+
 BlackArch Linux is an [Arch Linux](http://www.archlinux.org/)-based penetration testing distribution for penetration testers and security researchers. The repository contains [2845](https://www.blackarch.org/tools.html) tools.
 
 📥 Download BlackArch: [blackarch.org](https://www.blackarch.org/downloads.html)
@@ -13,7 +20,3 @@ BlackArch Linux is an [Arch Linux](http://www.archlinux.org/)-based penetration 
     - **Password:** `blackarch`
 3. Open terminal and run: `sudo blackarch-install`
 4. Then follow to the BlackArch wiki
-
----
-
-**Tags**: #Lab 

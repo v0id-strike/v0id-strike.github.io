@@ -1,3 +1,11 @@
+---
+title: Git Notes
+date: 2025-05-29
+categories:
+  - To_Sort
+  - Under_Development
+---
+
 ## 🔍 Compare Branches
 
 ### 🔹 Code Differences
@@ -103,7 +111,3 @@ git push origin --delete branch-name
 ```bash
 git fetch --prune
 ```
-
----
-
-**Tags:** #To_Sort

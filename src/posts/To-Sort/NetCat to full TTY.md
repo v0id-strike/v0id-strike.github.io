@@ -1,3 +1,11 @@
+---
+title: NetCat to Full TTY
+date: 2025-05-29
+categories:
+  - To_Sort
+  - Under_Development
+---
+
 Every pentester knows that amazing feeling when they catch a reverse shell with netcat and see that oh-so-satisfying verbose netcat message followed by output from `id`.
 
 And if other pentesters are like me, they also know that dreadful feeling when their shell is lost because they run a bad command that hangs and accidentally hit “Ctrl-C” thinking it will stop it but it instead kills the entire connection.

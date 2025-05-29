@@ -1,3 +1,13 @@
+---
+title: Wifi Cracking
+date: 2025-05-29
+categories:
+  - Linux
+  - Network
+  - Commands
+  - Offensive
+---
+
 ## **1. Understanding Wi-Fi Security Protocols**
 ### **Protocol Evolution & Vulnerabilities**
 | Protocol | Year | Encryption | Vulnerabilities          | Crackability     |
@@ -187,7 +197,3 @@ sudo sslstrip -l 8080
 1. Migrate to WPA3-Enterprise with 802.1X
 2. Disable WPS immediately
 3. Implement wireless intrusion detection
-
----
-
-**Tags:** #Offensive 

@@ -1,3 +1,10 @@
+---
+title: Fedora Server
+date: 2025-05-29
+categories:
+  - Lab
+---
+
 Not all targets—like **DVWA (Damn Vulnerable Web App)**—come with an ISO. Instead, they need to be deployed using **Docker** or other containerization platforms.
 By setting up a **Fedora Server VM**, we create a **powerful and stable environment** for hosting **vulnerable containers**, running **web services**, and managing **self-hosted applications**.
 
@@ -20,7 +27,3 @@ By setting up a **Fedora Server VM**, we create a **powerful and stable environm
 - **Begin Installation**
 - Wait for the installation to complete
 - **Reboot** into your newly installed Fedora Server
-
----
-
-**Tags**: #Lab 

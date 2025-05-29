@@ -1,3 +1,11 @@
+---
+title: The Shell
+date: 2025-05-29
+categories:
+  - Linux
+  - Shell
+---
+
 The bash prompt is simple to understand. By default, it shows information like your username (who you are), your computer's name (hostname), and the folder/directory you're currently working in. It's a line of text that appears on the screen to let you know the system is ready for you. The prompt appears on a new line, and the cursor (the blinking line or box) is placed right after it, waiting for you to type a command.
 
 It can be customized to provide useful information to the user. The format can look something like this:
@@ -50,7 +58,4 @@ The prompt can be customized using special characters and variables in the shell
 Customizing the prompt can be a useful way to make your terminal experience more personalized and efficient. It can also be a helpful tool for troubleshooting and problem-solving, as it can provide important information about the system’s state at any given time.
 
 In addition to customizing the prompt, we can customize their terminal environment with different color schemes, fonts, and other settings to make their work environment more visually appealing and easier to use.
-
----
-
-**Tags**: #Linux 
+ 

@@ -1,3 +1,10 @@
+---
+title: OpnSense
+date: 2025-05-29
+categories:
+  - Lab
+---
+
 ## Why OPNsense?
 
 In the realm of digital warfare, OPNsense stands as a formidable sentinel, balancing security, flexibility, and open-source freedom. It grants you the power to command your network, fortify your defenses, and orchestrate traffic with precision—an essential stronghold for any cybersecurity practitioner.
@@ -143,7 +150,3 @@ In the realm of digital warfare, OPNsense stands as a formidable sentinel, balan
 ✅ **Regular Firmware Updates** (System > Firmware).  
 ✅ **Automated Backups** (System > Configuration > Backup).  
 ✅ **High Availability (HA)** (System > High Availability) to sync two OPNsense firewalls.
-
----
-
-**Tags**: #Lab 

@@ -1,3 +1,10 @@
+---
+title: TimeShift
+date: 2025-05-29
+categories:
+  - Linux
+  - Back_Up
+---
 
 ## 🧩 STEP 1: Install Timeshift
 
@@ -102,7 +109,3 @@ You can also automate via systemd timers if you want finer control.
 | Setup Snapshots   | Create initial snapshot after setup    |
 | GRUB Hook         | Adds snapshots to GRUB boot menu       |
 | Boot Restore      | Lets you recover system via GRUB entry |
-
----
-
-**Tags:** #Linux

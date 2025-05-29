@@ -1,3 +1,10 @@
+---
+title: Connection Establishment
+date: 2025-05-29
+categories:
+  - Network
+---
+
 ## Key Exchange Mechanisms
 Key exchange methods are used to exchange [cryptographic keys](https://www.cloudflare.com/learning/ssl/what-is-a-cryptographic-key/) between two parties securely. This is an essential part of many cryptographic protocols, as the security of the encryption used to protect communication relies on the secrecy of the keys. There are many key exchange methods, each with unique characteristics and strengths. Some key exchange methods are more secure than others, and the appropriate method depends on the situation's specific circumstances and requirements.
 
@@ -291,7 +298,3 @@ A cipher mode refers to how a block cipher algorithm encrypts a plaintext messag
 |[Galois/Counter](https://en.wikipedia.org/wiki/Galois/Counter_Mode) (`GCM`) mode|GCM is used in cases where confidentiality and integrity need to be protected together, such as wireless communications, VPNs, and other secure communication protocols.|
 
 Each mode has its characteristics and is more suitable for certain use cases. The choice of encryption mode depends on the application's requirements and the security objectives to be achieved.
-
----
-
-**Tags:** #Networking 

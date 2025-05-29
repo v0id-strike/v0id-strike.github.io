@@ -1,4 +1,9 @@
-# Overview
+---
+title: Network Structure
+date: 2025-05-29
+categories:
+  - Network
+---
 
 ## **1. What Is a Network?**
 
@@ -245,7 +250,3 @@ Understanding how proxies work helps defenders set up better controls and helps 
 Proxy servers are essential tools in modern networking, offering privacy, security, control, and efficiency. Whether used by corporations to secure their networks, by developers to debug applications, or by individuals to access restricted content, proxies play a critical role in managing how devices communicate with each other.
 
 By understanding the different types of proxies and their specific functions, we can better utilize them in both defensive and offensive contexts. A proxy is more than just a way to hide your IP—it’s a strategic point of control in the flow of information across the internet.
-
----
-
-**Tags:** #Networking

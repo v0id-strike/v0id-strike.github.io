@@ -1,3 +1,10 @@
+---
+title: Arch
+date: 2025-05-29
+categories:
+  - Lab
+---
+
 Arch Linux is the ultimate choice for **ricing** due to its minimal, **DIY approach**, allowing complete control over system customization. With a **rolling-release model**, Arch provides **cutting-edge software** and access to the **AUR (Arch User Repository)**, making it perfect for installing and tweaking custom themes, window managers, and system utilities. Its **lightweight nature** ensures that only the components you need are installed, keeping your system **clean, fast, and efficient**—a dream setup for any ricer.
 
 📥 Download **Arch ISO** from [here](https://archlinux.org/download/).
@@ -136,7 +143,3 @@ echo "myuser ALL=(ALL) ALL" >> /etc/sudoers
 ## Final Thoughts
 You’ve successfully set up **Arch** in your home lab. 🔥
 💡 Use `archinstall` command, if you afraid of manual installation 🚀
-
----
-
-**Tags**: #Lab 

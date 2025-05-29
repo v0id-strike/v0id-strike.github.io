@@ -1,3 +1,9 @@
+---
+title: Hack My VM
+date: 2025-05-29
+categories:
+  - Lab
+---
 These virtual machines exist to be **attacked, exploited, DDoSed, and completely wrecked**—all in the name of learning and mastering **offensive security**.
 
 ---
@@ -6,7 +12,7 @@ These virtual machines exist to be **attacked, exploited, DDoSed, and completely
 
 #### 🟢 Easy
 
-- [Todd](HackMyVM/easy_Todd.md)    
+- [Todd](Todd.md)    
 - [Jan](HackMyVM/easy_Jan.md)
 
 #### 🟡 Medium
@@ -16,7 +22,4 @@ These virtual machines exist to be **attacked, exploited, DDoSed, and completely
 #### 🔴 Hard
 
 - _(Coming soon)_
-
----
-
-**Tags**: #Lab 
+ 

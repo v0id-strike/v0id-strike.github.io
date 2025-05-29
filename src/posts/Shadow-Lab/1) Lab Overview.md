@@ -1,3 +1,10 @@
+---
+title: Lab Overview
+date: 2025-05-29
+categories:
+  - Lab
+---
+
 ## **Lab Purpose**
 
 This lab is built for hands-on learning in Red Teaming, system administration, and Linux customization. It simulates real-world attack/defense scenarios while also supporting teaching and workflow optimization.
@@ -73,5 +80,4 @@ The Shadow-Lab network is structured for both security and versatility.
 
 ---
 
-Note: Yes, `i use arch[[2) OpnSense]], BTW`
-**Tags**: #Lab 
+Note: Yes, `I use arch, BTW`

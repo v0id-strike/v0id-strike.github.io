@@ -1,3 +1,18 @@
+---
+title: Todd
+date: 2025-05-29
+categories:
+  - Linux
+  - Offensive
+  - Lab
+  - Commands
+  - Remote_Connection
+  - Shell
+  - Privilege_Escalation
+  - NMAP
+  - Net_Cat
+---
+
 ## Reconnaissance
 
 ### Initial Nmap Scan

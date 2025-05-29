@@ -1,4 +1,10 @@
-# Seperate /home from system
+---
+title: Post Title
+date: 2015-05-29
+categories:
+  - Linux
+  - Partition
+---
 
 ## Step 1: Mount the 1TB SSD
 
@@ -42,7 +48,3 @@ sudo vim /etc/fstab
 ```bash
 UUID=<UUID of 1TB SSD>  /home  btrfs  defaults  0  0
 ```
-
----
-
-**Tags:** #Linux

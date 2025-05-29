@@ -1,3 +1,11 @@
+---
+title: SSH
+date: 2025-05-29
+categories:
+  - Linux
+  - Remote_Connection
+---
+
 ### On Each Lab PC
 
 1. **Install the OpenSSH server**
@@ -90,7 +98,3 @@ for ip in 192.168.1.{2..255}; do
   ssh student@$ip "sudo pacman -Syu --noconfirm"
 done
 ```
-
----
-
-**Tags:** #Linux

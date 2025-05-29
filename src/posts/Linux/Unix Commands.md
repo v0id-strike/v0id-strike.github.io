@@ -1,3 +1,12 @@
+---
+title: Unix Commands
+date: 2025-05-29
+categories:
+  - Linux
+  - Shell
+  - Commands
+---
+
 Below is an **A to Z** reference of essential Unix/Linux commands. This will serve as your **quick-access arsenal** whenever you need to execute system tasks, automate workflows, or dominate the terminal like a pro
 
 ---
@@ -171,7 +180,3 @@ Below is an **A to Z** reference of essential Unix/Linux commands. This will ser
 
 - `zip` → Create compressed ZIP archives
 - `zcat` → View contents of a compressed file
-
----
-
-**Tags:** #Linux

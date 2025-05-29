@@ -1,3 +1,10 @@
+---
+title: Ubuntu Server
+date: 2025-05-29
+categories:
+  - Lab
+---
+
 The primary purpose of this VM is to serve as a **fortress of learning**—a place to **master Linux fundamentals**, **harden your sysadmin skills**, and **deploy web services** with confidence. Whether you're setting up a **self-hosted server**, **learning automation**, or **building a C2 framework**, this Ubuntu Server VM will be your **battle-tested** companion.
 
 📥 Get the official **Ubuntu Server ISO** from [here](https://ubuntu.com/download/server).
@@ -24,7 +31,3 @@ The primary purpose of this VM is to serve as a **fortress of learning**—a pla
 - Start the installation process
 - Once completed, **reboot** the system
 - Login with your created user credentials
-
----
-
-**Tags**: #Lab 

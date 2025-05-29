@@ -1,3 +1,10 @@
+---
+title: Protocols & Terminology
+date: 2025-05-29
+categories:
+  - Network
+---
+
 ## Networking Key Terminology
 There are many different terms in the field of information technology. However, we only need to know some of them, only the essential ones. The number of programming languages, functions, protocols, different procedures, areas of application, details, and at the same time, the number of errors that can occur. All these areas are so large that you can specialize your entire career in 1-2 areas.
 
@@ -752,7 +759,3 @@ VLANs
 ```
 
 In this example, we see that an `STP` message was sent containing information about the root switch, the MAC address of the root switch, the ID of the port over which the message was sent, and other configuration parameters such as the maximum aging time, hello time, and forward delay.
-
----
-
-**Tags:** #Networking 
