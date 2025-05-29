@@ -3,36 +3,51 @@ layout: layouts/base.njk
 title: Void-Strike Cyber Security
 ---
 
-<h2>Notes</h2>
-
-<div class="notes-tree">
-{% set posts = collections.posts | reverse %}
-{% set groups = {} %}
-
-{# First, organize posts by their directory structure #}
-{% for post in posts %}
-    {% set path = post.filePathStem | replace('/posts/', '') | split('/') %}
-    {% set group = path[0] %}
-    {% if not groups[group] %}
-        {% set groups = groups | merge({ [group]: [] }) %}
-    {% endif %}
-    {% set groups = groups | merge({ [group]: groups[group] | concat([post]) }) %}
-{% endfor %}
-
-{# Display the tree structure #}
-{% for group, groupPosts in groups %}
-    <div class="note-group">
-        <h3 class="group-title">{{ group }}</h3>
-        <div class="group-notes">
-            {% for post in groupPosts %}
-                <div class="note">
-                    <a href="{{ post.url }}" class="note-link">{{ post.data.title }}</a>
-                    {% if post.data.description %}
-                        <p class="note-description">{{ post.data.description }}</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
+<div class="terminal-container">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="terminal-button red"></span>
+      <span class="terminal-button yellow"></span>
+      <span class="terminal-button green"></span>
     </div>
-{% endfor %}
+    <span class="terminal-title">notes-tree --view=structured</span>
+  </div>
+  
+  <div class="terminal-body">
+    <h2 class="glow-text">Cyber Security Notes</h2>
+    
+    {% set posts = collections.posts | reverse %}
+    {% set categories = {} %}
+    
+    {# Organize posts by category #}
+    {% for post in posts %}
+      {% set category = post.data.categories[0] if post.data.categories else "Uncategorized" %}
+      {% if not categories[category] %}
+        {% set categories = categories | merge({ [category]: [] }) %}
+      {% endif %}
+      {% set categories = categories | merge({ [category]: categories[category] | concat([post]) }) %}
+    {% endfor %}
+    
+    {# Display terminal-style tree #}
+    <div class="tree-view">
+      {% for category, posts in categories %}
+        <div class="tree-folder">
+          <span class="folder-icon">📁</span>
+          <span class="folder-name">{{ category }}</span>
+          
+          <div class="tree-files">
+            {% for post in posts %}
+              <div class="tree-file">
+                <span class="file-icon">📄</span>
+                <a href="{{ post.url }}" class="file-link">{{ post.data.title }}</a>
+                {% if post.data.description %}
+                  <span class="file-description">// {{ post.data.description }}</span>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
