@@ -17,36 +17,38 @@ title: Void-Strike Cyber Security
     <h2 class="glow-text">Cyber Security Notes</h2>
     
     {% set posts = collections.posts | reverse %}
-    {% set groups = {} %}
     
-    {# First, organize posts by their directory #}
-    {% for post in posts %}
-      {% set path = post.filePathStem | replace('/posts/', '') | split('/') %}
-      {% set group = path[0] %}
-      {% if not groups[group] %}
-        {% set groups = groups | merge({ (group): [] }) %}
-      {% endif %}
-      {% set groups = groups | merge({ (group): groups[group] | concat([post]) }) %}
-    {% endfor %}
-    
-    {# Display the tree structure #}
+    {# Display terminal-style tree #}
     <div class="tree-view">
-      {% for group, groupPosts in groups %}
-        <div class="tree-folder">
-          <span class="folder-icon">📁</span>
-          <span class="folder-name">{{ group }}</span>
-          <div class="tree-files">
-            {% for post in groupPosts %}
-              <div class="tree-file">
-                <span class="file-icon">📄</span>
-                <a href="{{ post.url }}" class="file-link">{{ post.data.title }}</a>
-                {% if post.data.description %}
-                  <span class="file-description">// {{ post.data.description }}</span>
-                {% endif %}
-              </div>
-            {% endfor %}
+      {% set currentGroup = "" %}
+      {% for post in posts %}
+        {% set path = post.filePathStem | replace('/posts/', '') | split('/') %}
+        {% set group = path[0] %}
+        
+        {% if group != currentGroup %}
+          {% if not loop.first %}
+            </div>
+          </div>
+          {% endif %}
+          <div class="tree-folder">
+            <span class="folder-icon">📁</span>
+            <span class="folder-name">{{ group }}</span>
+            <div class="tree-files">
+          {% set currentGroup = group %}
+        {% endif %}
+        
+        <div class="tree-file">
+          <span class="file-icon">📄</span>
+          <a href="{{ post.url }}" class="file-link">{{ post.data.title }}</a>
+          {% if post.data.description %}
+            <span class="file-description">// {{ post.data.description }}</span>
+          {% endif %}
+        </div>
+        
+        {% if loop.last %}
           </div>
         </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
