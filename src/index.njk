@@ -23,9 +23,9 @@ title: Void-Strike Cyber Security
     {% for post in posts %}
       {% set category = post.data.categories[0] if post.data.categories else "Uncategorized" %}
       {% if not categories[category] %}
-        {% set categories = categories | merge({ [category]: [] }) %}
+        {% set categories = categories | merge({ (category): [] }) %}
       {% endif %}
-      {% set categories = categories | merge({ [category]: categories[category] | concat([post]) }) %}
+      {% set categories = categories | merge({ (category): categories[category] | concat([post]) }) %}
     {% endfor %}
     
     {# Display terminal-style tree #}
