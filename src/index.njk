@@ -21,14 +21,17 @@ title: Void-Strike Cyber Security
     {# Display terminal-style tree #}
     <div class="tree-view">
       {% for post in posts %}
-        {% if loop.first or post.data.categories[0] != posts[loop.index0 - 1].data.categories[0] %}
+        {% set path = post.filePathStem | replace('/posts/', '') | split('/') %}
+        {% set group = path[0] %}
+        
+        {% if loop.first or group != posts[loop.index0 - 1].filePathStem | replace('/posts/', '') | split('/')[0] %}
           {% if not loop.first %}
             </div>
           </div>
           {% endif %}
           <div class="tree-folder">
             <span class="folder-icon">📁</span>
-            <span class="folder-name">{{ post.data.categories[0] if post.data.categories else "Uncategorized" }}</span>
+            <span class="folder-name">{{ group }}</span>
             <div class="tree-files">
         {% endif %}
         
