@@ -33,20 +33,19 @@ In addition to displaying basic information like your username and current folde
 
 The prompt can be customized using special characters and variables in the shell’s configuration file (.bashrc for the Bash shell). For example, we can use: the \u character to represent the current username, \h for the hostname, and \w for the current working directory.
 
-| Special Character | Description                                |
-| ----------------- | ------------------------------------------ |
-| \d                | Date (Mon Feb 6)                           |
-| \D{%Y-%m-%d}      | Date (YYYY-MM-DD)                          |
-| \H                | Full hostname                              |
-| \j                | Number of jobs managed by the shell        |
-| \n                | Newline                                    |
-| \r                | Carriage return                            |
-| \s                | Name of the shell                          |
-| \t                | Current time 24-hour (HH:MM:SS)            |
-| \T                | Current time 12-hour (HH:MM:SS)            |
-| \\@               | Current time                               |
-| \u                | Current username                           |
-| \w                | Full path of the current working directory |
+| Special Character                 | Description                                |
+| --------------------------------- | ------------------------------------------ |
+| \d                                | Date (Mon Feb 6)                           |
+| \H                                | Full hostname                              |
+| \j                                | Number of jobs managed by the shell        |
+| \n                                | Newline                                    |
+| \r                                | Carriage return                            |
+| \s                                | Name of the shell                          |
+| \t                                | Current time 24-hour (HH:MM:SS)            |
+| \T                                | Current time 12-hour (HH:MM:SS)            |
+| \\@                               | Current time                               |
+| \u                                | Current username                           |
+| \w                                | Full path of the current working directory |
 
 Customizing the prompt can be a useful way to make your terminal experience more personalized and efficient. It can also be a helpful tool for troubleshooting and problem-solving, as it can provide important information about the system’s state at any given time.
 
