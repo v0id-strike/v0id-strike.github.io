@@ -66,11 +66,17 @@ a:hover {
     font-weight: bold;
 }
 
-footer {
+.footer {
+    background-color: var(--void);
+    color: var(--neon);
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 0;
+    margin-top: 3rem;
     border-top: 1px solid var(--neon);
-    margin-top: 2rem;
+}
+
+.footer p {
+    margin: 0.5rem 0;
 }
 
 /* Terminal-like elements */
