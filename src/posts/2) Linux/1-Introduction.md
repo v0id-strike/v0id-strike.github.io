@@ -1,6 +1,9 @@
 ---
-title: Introduction
-date: 2025-05-29
+title: "01 - Introduction to Linux"
+description: "Comprehensive introduction to Linux operating system and its role in cybersecurity"
+date: 2024-01-01
+place: 1  # First major section in Linux category
+order: 1  # First article in this section
 categories:
   - Linux
 ---
@@ -110,7 +113,7 @@ The main differences between the various Linux distributions are the included pa
 ---
 ## CLI
 
-It is crucial to learn how to use the Linux shell, as there are many servers based on Linux. These are often used because Linux is less error-prone as opposed to Windows servers. For example, web servers are often based on Linux. Knowing how to use the operating system to control it effectively requires understanding and mastering Linux’s essential part, the `Shell`. When we first switched from Windows to Linux, does it look something like this:
+It is crucial to learn how to use the Linux shell, as there are many servers based on Linux. These are often used because Linux is less error-prone as opposed to Windows servers. For example, web servers are often based on Linux. Knowing how to use the operating system to control it effectively requires understanding and mastering Linux's essential part, the `Shell`. When we first switched from Windows to Linux, does it look something like this:
 
 ![Terminal](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.packt-cdn.com%2Fproducts%2F9781788995597%2Fgraphics%2F8bbeb109-b258-49ae-954a-c16e03c5cd55.png&f=1&nofb=1&ipt=059644b870a4499d4d3b9a4c682df7aa3d79586c13bf44969f0a1f73340e3bf9)
 

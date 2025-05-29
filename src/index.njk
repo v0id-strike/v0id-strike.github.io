@@ -60,7 +60,7 @@ title: .voidrc
                         
                         <div class="tree-file">
                             <span class="file-icon">{% if subgroup %}    {% endif %}└── 📄</span>
-                            <a href="{{ post.url }}" class="file-link">{{ post.data.title }}</a>
+                            <a href="{{ post.url }}" class="file-link">{{ post.data.title | cleanTitle }}</a>
                             {% if post.data.description %}
                                 <span class="file-description">// {{ post.data.description }}</span>
                             {% endif %}

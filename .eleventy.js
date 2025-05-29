@@ -23,9 +23,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter("getCategories", function(collections) {
         const categories = new Set();
         
-        // Get all items from the posts collection
         collections.posts.forEach(item => {
-            // Get the directory name from the file path
             const path = item.filePathStem.replace('/posts/', '');
             const category = path.split('/')[0];
             if (category) {
@@ -36,21 +34,48 @@ module.exports = function(eleventyConfig) {
         return Array.from(categories).sort();
     });
 
-    // Custom filter to sort by order
+    // Custom filter to sort by order and clean up titles
     eleventyConfig.addFilter("sortByOrder", function(collection) {
         return collection.sort((a, b) => {
-            // Get order values, default to 999 if not set
+            // Get the paths for comparison
+            const pathA = a.filePathStem.replace('/posts/', '');
+            const pathB = b.filePathStem.replace('/posts/', '');
+            
+            // Split paths into parts
+            const partsA = pathA.split('/');
+            const partsB = pathB.split('/');
+            
+            // Compare categories first
+            if (partsA[0] !== partsB[0]) {
+                return partsA[0].localeCompare(partsB[0]);
+            }
+            
+            // If in same category, check for specific place
+            const placeA = a.data.place || 999;
+            const placeB = b.data.place || 999;
+            
+            if (placeA !== placeB) {
+                return placeA - placeB;
+            }
+            
+            // If same place, check for order
             const orderA = a.data.order || 999;
             const orderB = b.data.order || 999;
             
-            // First sort by order
             if (orderA !== orderB) {
                 return orderA - orderB;
             }
             
-            // If orders are equal, sort by date
+            // If all else is equal, sort by date
             return new Date(b.date) - new Date(a.date);
         });
+    });
+
+    // Clean up titles by removing numbers and special characters
+    eleventyConfig.addFilter("cleanTitle", function(title) {
+        if (!title) return "";
+        // Remove numbers and special characters from the beginning
+        return title.replace(/^[\d\s\-_]+/, '').trim();
     });
 
     return {

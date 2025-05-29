@@ -1,6 +1,9 @@
 ---
-title: The Shell
-date: 2025-05-29
+title: "02 - The Linux Shell"
+description: "Understanding and mastering the Linux shell environment"
+date: 2024-01-01
+place: 1  # Same place as Introduction (first section)
+order: 2  # Second article in this section
 categories:
   - Linux
   - Shell
@@ -39,7 +42,7 @@ The PS1 variable in Linux systems controls how your command prompt looks in the 
 
 In addition to displaying basic information like your username and current folder, you can customize the command prompt to show other useful details such as the IP address, date, time, and the success or failure of the last command. This customization is especially helpful during penetration tests because it allows you to keep track of your actions more effectively. For instance, you can set the prompt to show the full path of the current working directory instead of just its name, and even include the target's IP address if needed. Using tools like script or reviewing the .bash_history file (located in the user's home directory), you can record all the commands you've used and organize them by date and time, which aids in documentation and analysis.
 
-The prompt can be customized using special characters and variables in the shell’s configuration file (.bashrc for the Bash shell). For example, we can use: the \u character to represent the current username, \h for the hostname, and \w for the current working directory.
+The prompt can be customized using special characters and variables in the shell's configuration file (.bashrc for the Bash shell). For example, we can use: the \u character to represent the current username, \h for the hostname, and \w for the current working directory.
 
 | Special Character                 | Description                                |
 | --------------------------------- | ------------------------------------------ |
@@ -55,7 +58,7 @@ The prompt can be customized using special characters and variables in the shell
 | \u                                | Current username                           |
 | \w                                | Full path of the current working directory |
 
-Customizing the prompt can be a useful way to make your terminal experience more personalized and efficient. It can also be a helpful tool for troubleshooting and problem-solving, as it can provide important information about the system’s state at any given time.
+Customizing the prompt can be a useful way to make your terminal experience more personalized and efficient. It can also be a helpful tool for troubleshooting and problem-solving, as it can provide important information about the system's state at any given time.
 
 In addition to customizing the prompt, we can customize their terminal environment with different color schemes, fonts, and other settings to make their work environment more visually appealing and easier to use.
  
