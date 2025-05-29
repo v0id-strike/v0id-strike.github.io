@@ -1,51 +1,51 @@
 :root {
-    --void: #0a0a1a;
-    --text: #e0e0ff;
-    --accent: #2a2a4a;
-    --neon: #8a2be2;
-    --glow: rgba(138, 43, 226, 0.3);
-    --background: 240 10% 3.9%;
+    --void: #1a0a0a;
+    --text: #ffe0e0;
+    --accent: #4a2a2a;
+    --neon: #ff2b2b;
+    --glow: rgba(255, 43, 43, 0.3);
+    --background: 0 10% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 0 10% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 0 10% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --primary-foreground: 0 5.9% 10%;
+    --secondary: 0 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --muted: 0 3.7% 15.9%;
+    --muted-foreground: 0 5% 64.9%;
+    --accent: 0 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 0 3.7% 15.9%;
+    --input: 0 3.7% 15.9%;
+    --ring: 0 4.9% 83.9%;
     --radius: 0.5rem;
 }
 
 .dark {
-    --background: 240 10% 3.9%;
+    --background: 0 10% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 0 10% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 0 10% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --primary-foreground: 0 5.9% 10%;
+    --secondary: 0 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --muted: 0 3.7% 15.9%;
+    --muted-foreground: 0 5% 64.9%;
+    --accent: 0 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 0 3.7% 15.9%;
+    --input: 0 3.7% 15.9%;
+    --ring: 0 4.9% 83.9%;
 }
 
 * {
