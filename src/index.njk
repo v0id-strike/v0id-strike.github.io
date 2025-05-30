@@ -13,63 +13,54 @@ title: Void-Strike
 <section id="notes" class="section">
     <div class="container">
         <h2 class="section-title">Security Notes</h2>
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="terminal-button red"></span>
-                    <span class="terminal-button yellow"></span>
-                    <span class="terminal-button green"></span>
-                </div>
-                <span class="terminal-title">/notes</span>
-            </div>
-            <div class="terminal-body">
-                <div class="terminal-output" id="terminalOutput">
-                    <div class="terminal-line">
-                        <span class="prompt">$</span>
-                        <span class="command"></span>
-                    </div>
-                    <div class="command-output" id="lsOutput" style="display: none;">
-                        {% set posts = collections.posts | sortByOrder %}
-                        {% set currentGroup = "" %}
-                        
-                        {% for post in posts %}
-                            {% set path = post.filePathStem | replace('/posts/', '') %}
-                            {% set pathParts = path.split('/') %}
-                            {% set group = pathParts[0] %}
-                            
-                            {% if group != currentGroup %}
-                                {% if not loop.first %}
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="tree-folder" data-path="/notes/{{ group }}">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">{{ group }}</span>
-                                    </div>
-                                    <div class="tree-files">
-                                {% set currentGroup = group %}
-                            {% endif %}
-                            
-                            <div class="tree-file" data-path="/notes/{{ path }}" data-content="{{ post.data.content | safe }}">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">{{ post.data.title | cleanTitle }}</span>
-                                {% if post.data.description %}
-                                    <span class="file-description">// {{ post.data.description }}</span>
-                                {% endif %}
-                            </div>
-                            
-                            {% if loop.last %}
-                                </div>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="terminal-input-line">
+        <div class="terminal">
+            <div class="terminal-title">Terminal: /notes</div>
+            <div class="terminal-output" id="terminalOutput">
+                <div class="terminal-line">
                     <span class="prompt">$</span>
-                    <input type="text" class="terminal-input" id="terminalInput" autofocus>
+                    <span class="command"></span>
                 </div>
+                <div class="command-output" id="lsOutput" style="display: none;">
+                    {% set posts = collections.posts | sortByOrder %}
+                    {% set currentGroup = "" %}
+                    
+                    {% for post in posts %}
+                        {% set path = post.filePathStem | replace('/posts/', '') %}
+                        {% set pathParts = path.split('/') %}
+                        {% set group = pathParts[0] %}
+                        
+                        {% if group != currentGroup %}
+                            {% if not loop.first %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="tree-folder" data-path="/notes/{{ group }}">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">{{ group }}</span>
+                                </div>
+                                <div class="tree-files">
+                            {% set currentGroup = group %}
+                        {% endif %}
+                        
+                        <div class="tree-file" data-path="/notes/{{ path }}" data-content="{{ post.data.content | safe }}">
+                            <span class="file-icon">└── 📄</span>
+                            <span class="file-name">{{ post.data.title | cleanTitle }}</span>
+                            {% if post.data.description %}
+                                <span class="file-description">// {{ post.data.description }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        {% if loop.last %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="terminal-input-container">
+                <span class="prompt">$</span>
+                <input type="text" id="terminalInput" class="terminal-input" autofocus>
             </div>
         </div>
     </div>
