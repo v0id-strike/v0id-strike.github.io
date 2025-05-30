@@ -3,13 +3,24 @@ class Terminal {
         this.container = container;
         this.history = [];
         this.historyIndex = -1;
+        this.currentPath = '~';
         this.commands = {
             help: () => this.printHelp(),
             clear: () => this.clear(),
             echo: (args) => this.echo(args),
             ls: () => this.ls(),
+            cd: (args) => this.cd(args),
+            pwd: () => this.pwd(),
+            cat: (args) => this.cat(args),
             about: () => this.about(),
-            contact: () => this.contact()
+            contact: () => this.contact(),
+            skills: () => this.skills(),
+            projects: () => this.projects(),
+            notes: () => this.notes(),
+            theme: (args) => this.theme(args),
+            date: () => this.date(),
+            whoami: () => this.whoami(),
+            exit: () => this.exit()
         };
         this.init();
     }
@@ -19,7 +30,7 @@ class Terminal {
         this.inputLine = document.createElement('div');
         this.inputLine.className = 'terminal-input-line';
         this.inputLine.innerHTML = `
-            <span class="prompt">$</span>
+            <span class="prompt">void-strike@terminal:${this.currentPath}$</span>
             <input type="text" class="terminal-input" autofocus>
         `;
         this.container.appendChild(this.inputLine);
@@ -56,7 +67,7 @@ class Terminal {
         this.historyIndex = this.history.length;
         
         // Display command
-        this.print(`<span class="prompt">$</span> ${cmd}`);
+        this.print(`<span class="prompt">void-strike@terminal:${this.currentPath}$</span> ${cmd}`);
         
         // Parse and execute command
         const [command, ...args] = cmd.split(' ');
@@ -65,15 +76,16 @@ class Terminal {
         if (commandFn) {
             commandFn(args);
         } else {
-            this.print(`Command not found: ${command}. Type 'help' for available commands.`);
+            this.print(`Command not found: ${command}. Type 'help' for available commands.`, 'error');
         }
     }
 
-    print(text) {
+    print(text, type = '') {
         const line = document.createElement('div');
-        line.className = 'terminal-line';
+        line.className = `terminal-line ${type}`;
         line.innerHTML = text;
         this.container.insertBefore(line, this.inputLine);
+        this.container.scrollTop = this.container.scrollHeight;
     }
 
     navigateHistory(direction) {
@@ -104,8 +116,18 @@ Available commands:
   clear    - Clear the terminal
   echo     - Print text to the terminal
   ls       - List available sections
+  cd       - Change directory/section
+  pwd      - Show current directory
+  cat      - Display content of a file
   about    - Show information about me
   contact  - Show contact information
+  skills   - List my technical skills
+  projects - Show my projects
+  notes    - Access security notes
+  theme    - Change terminal theme
+  date     - Show current date and time
+  whoami   - Show current user info
+  exit     - Exit the terminal
         `);
     }
 
@@ -119,24 +141,82 @@ Available commands:
     }
 
     ls() {
-        this.print(`
-Sections:
-  /home     - Home page
-  /notes    - Security notes and writeups
-  /projects - My projects
-  /about    - About me
-        `);
+        const sections = {
+            '~': ['about', 'projects', 'notes', 'skills'],
+            '/about': ['bio.txt', 'experience.txt'],
+            '/projects': ['web-security', 'malware-analysis', 'ctf-writeups'],
+            '/notes': ['web-pentest', 'network-security', 'malware-analysis']
+        };
+
+        const currentSection = sections[this.currentPath] || [];
+        this.print(currentSection.join('  '));
+    }
+
+    cd(args) {
+        const path = args[0];
+        if (!path) {
+            this.currentPath = '~';
+            this.updatePrompt();
+            return;
+        }
+
+        const validPaths = ['~', '/about', '/projects', '/notes'];
+        if (validPaths.includes(path)) {
+            this.currentPath = path;
+            this.updatePrompt();
+        } else {
+            this.print(`cd: no such directory: ${path}`, 'error');
+        }
+    }
+
+    pwd() {
+        this.print(this.currentPath);
+    }
+
+    cat(args) {
+        const file = args[0];
+        if (!file) {
+            this.print('cat: missing file operand', 'error');
+            return;
+        }
+
+        const files = {
+            'bio.txt': `
+Name: Void-Strike
+Role: Cybersecurity Researcher
+Experience: 5+ years in security research
+Focus: Web Security, Malware Analysis, CTF
+            `,
+            'experience.txt': `
+- Senior Security Researcher
+- CTF Player and Organizer
+- Bug Bounty Hunter
+- Security Tool Developer
+            `
+        };
+
+        if (files[file]) {
+            this.print(files[file]);
+        } else {
+            this.print(`cat: ${file}: No such file`, 'error');
+        }
     }
 
     about() {
         this.print(`
 About Void-Strike:
-  I am a cybersecurity enthusiast and researcher.
+  I am a cybersecurity enthusiast and researcher with a passion for
+  discovering vulnerabilities and developing security tools.
+
   My focus areas include:
-  - Web Security
-  - Network Security
-  - Malware Analysis
-  - CTF Challenges
+  - Web Security & Penetration Testing
+  - Network Security & Analysis
+  - Malware Analysis & Reverse Engineering
+  - CTF Challenges & Security Research
+
+  Type 'skills' to see my technical expertise
+  Type 'projects' to view my work
+  Type 'notes' to access security writeups
         `);
     }
 
@@ -145,7 +225,107 @@ About Void-Strike:
 Contact Information:
   GitHub   - github.com/v0id-strike
   Telegram - t.me/v0id_strike
+  Email    - [redacted]
         `);
+    }
+
+    skills() {
+        this.print(`
+Technical Skills:
+  Languages:
+    - Python, JavaScript, C/C++, Assembly
+    - HTML/CSS, SQL, Shell Scripting
+
+  Security Tools:
+    - Burp Suite, Wireshark, IDA Pro
+    - Metasploit, Nmap, Ghidra
+    - Custom Exploitation Tools
+
+  Areas of Expertise:
+    - Web Application Security
+    - Network Protocol Analysis
+    - Malware Analysis
+    - Reverse Engineering
+    - Exploit Development
+        `);
+    }
+
+    projects() {
+        this.print(`
+Current Projects:
+  1. Web Security Scanner
+     - Automated vulnerability detection
+     - Custom rule engine
+     - Report generation
+
+  2. Malware Analysis Framework
+     - Dynamic analysis
+     - Behavior monitoring
+     - IOC extraction
+
+  3. CTF Platform
+     - Challenge development
+     - Infrastructure management
+     - Score tracking
+        `);
+    }
+
+    notes() {
+        this.print(`
+Security Notes:
+  Available Categories:
+  1. Web Pentest
+     - OWASP Top 10
+     - Custom exploits
+     - Bypass techniques
+
+  2. Network Security
+     - Protocol analysis
+     - Traffic inspection
+     - Attack vectors
+
+  3. Malware Analysis
+     - Static analysis
+     - Dynamic analysis
+     - Reverse engineering
+        `);
+    }
+
+    theme(args) {
+        const theme = args[0];
+        if (!theme) {
+            this.print('Available themes: dark, light, matrix, neon', 'error');
+            return;
+        }
+
+        // Theme switching logic would go here
+        this.print(`Theme changed to: ${theme}`, 'success');
+    }
+
+    date() {
+        const now = new Date();
+        this.print(now.toLocaleString());
+    }
+
+    whoami() {
+        this.print(`
+User: void-strike
+Role: Security Researcher
+Location: [redacted]
+Status: Active
+        `);
+    }
+
+    exit() {
+        this.print('Goodbye!', 'success');
+        setTimeout(() => {
+            window.close();
+        }, 1000);
+    }
+
+    updatePrompt() {
+        const prompt = this.inputLine.querySelector('.prompt');
+        prompt.textContent = `void-strike@terminal:${this.currentPath}$`;
     }
 }
 
