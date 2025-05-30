@@ -1,29 +1,29 @@
 :root {
-    --void: #0a0505;
-    --text: #ffffff;
-    --accent: #5a2a2a;
-    --neon: #ff3333;
-    --glow: rgba(255, 51, 51, 0.4);
-    --background: 0 10% 2%;
-    --foreground: 0 0% 100%;
-    --card: 0 10% 2%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 10% 2%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 5.9% 10%;
-    --secondary: 0 3.7% 15.9%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 3.7% 15.9%;
-    --muted-foreground: 0 5% 80%;
-    --accent: 0 3.7% 15.9%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 3.7% 15.9%;
-    --input: 0 3.7% 15.9%;
-    --ring: 0 4.9% 83.9%;
-    --radius: 0.5rem;
+    --void: #0a0a0a;
+    --text: #00ff00;
+    --accent: #1a1a1a;
+    --neon: #ff0000;
+    --glow: rgba(255, 0, 0, 0.4);
+    --background: 0 0% 4%;
+    --foreground: 120 100% 50%;
+    --card: 0 0% 4%;
+    --card-foreground: 120 100% 50%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 120 100% 50%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 120 100% 50%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 120 100% 50%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 120 100% 50%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 4%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 120 100% 50%;
+    --radius: 0;
 }
 
 .dark {
@@ -57,9 +57,10 @@
 body {
     background-color: var(--void);
     color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
     overflow-x: hidden;
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .container {
@@ -122,10 +123,11 @@ body {
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(10, 5, 5, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 51, 51, 0.2);
+    border-bottom: 1px solid var(--neon);
     padding: 1rem 0;
+    box-shadow: 0 0 20px var(--glow);
 }
 
 .nav-container {
@@ -143,11 +145,12 @@ body {
     color: var(--text);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s;
     position: relative;
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .nav-link::after {
@@ -160,6 +163,11 @@ body {
     background: var(--neon);
     transition: width 0.3s;
     box-shadow: 0 0 10px var(--glow);
+}
+
+.nav-link:hover {
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .nav-link:hover::after {
@@ -187,23 +195,23 @@ body {
 }
 
 .card {
-    background: rgba(90, 42, 42, 0.2);
+    background: rgba(26, 26, 26, 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 51, 51, 0.3);
+    border: 1px solid var(--neon);
     box-shadow: 
-        0 0 20px rgba(255, 51, 51, 0.1),
-        inset 0 0 20px rgba(255, 51, 51, 0.05);
-    border-radius: var(--radius);
+        0 0 20px rgba(255, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 0, 0, 0.05);
+    border-radius: 0;
     padding: 2rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 
-        0 10px 30px rgba(255, 51, 51, 0.2),
-        inset 0 0 30px rgba(255, 51, 51, 0.1);
-    border-color: rgba(255, 51, 51, 0.5);
+        0 10px 30px rgba(255, 0, 0, 0.2),
+        inset 0 0 30px rgba(255, 0, 0, 0.1);
+    border-color: var(--neon);
 }
 
 .card-title {
@@ -212,6 +220,7 @@ body {
     margin-bottom: 1rem;
     color: var(--neon);
     text-shadow: 0 0 10px var(--glow);
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .card-description {
@@ -221,15 +230,16 @@ body {
 
 /* Terminal Container Styles */
 .terminal-container {
-    background: rgba(10, 5, 5, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     border: 1px solid var(--neon);
     box-shadow: 
-        0 0 20px rgba(255, 51, 51, 0.15),
-        inset 0 0 20px rgba(255, 51, 51, 0.05);
-    font-family: 'Courier New', monospace;
+        0 0 20px rgba(255, 0, 0, 0.15),
+        inset 0 0 20px rgba(255, 0, 0, 0.05);
+    font-family: 'JetBrains Mono', monospace;
     margin: 2rem 0;
     overflow: hidden;
+    border-radius: 0;
 }
 
 .terminal-header {
@@ -336,10 +346,11 @@ body {
 
 /* Footer */
 .footer {
-    background: rgba(26, 10, 10, 0.8);
-    border-top: 1px solid rgba(255, 43, 43, 0.1);
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid var(--neon);
     padding: 3rem 0;
     margin-top: 6rem;
+    box-shadow: 0 0 20px var(--glow);
 }
 
 .footer-content {
@@ -356,16 +367,18 @@ body {
 .social-link {
     color: var(--text);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s;
     font-family: 'JetBrains Mono', monospace;
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .social-link:hover {
     color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .link-icon {
@@ -409,7 +422,7 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -417,12 +430,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 5px;
+    background: var(--neon);
+    border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--neon);
+    background: var(--text);
 }
 
 /* Tech Background Styles */
@@ -434,8 +447,8 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(90deg, var(--void) 1px, transparent 1px) 0 0 / 50px 50px,
-        linear-gradient(0deg, var(--void) 1px, transparent 1px) 0 0 / 50px 50px;
+        linear-gradient(90deg, var(--neon) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, var(--neon) 1px, transparent 1px) 0 0 / 20px 20px;
     background-color: var(--void);
     opacity: 0.1;
     z-index: -1;
@@ -451,7 +464,7 @@ body::after {
     height: 100%;
     background: 
         radial-gradient(circle at 50% 50%, 
-            rgba(255, 51, 51, 0.1) 0%,
+            rgba(255, 0, 0, 0.1) 0%,
             transparent 50%);
     z-index: -1;
     animation: pulse 4s ease-in-out infinite;
@@ -468,22 +481,22 @@ body::after {
 
 @keyframes pulse {
     0%, 100% {
-        opacity: 0.5;
+        opacity: 0.3;
         transform: scale(1);
     }
     50% {
-        opacity: 0.8;
+        opacity: 0.5;
         transform: scale(1.1);
     }
 }
 
 @keyframes heroPulse {
     0%, 100% {
-        opacity: 0.5;
+        opacity: 0.3;
         transform: scale(1);
     }
     50% {
-        opacity: 0.8;
+        opacity: 0.5;
         transform: scale(1.05);
     }
 }
@@ -498,8 +511,8 @@ body::after {
     pointer-events: none;
     z-index: 1;
     background: 
-        linear-gradient(90deg, rgba(255, 51, 51, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
-        linear-gradient(0deg, rgba(255, 51, 51, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
     animation: overlayPulse 4s ease-in-out infinite;
 }
 
@@ -517,17 +530,20 @@ body::after {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
     font-size: 1.5rem;
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .logo-text {
     background: linear-gradient(to right, var(--text), var(--neon));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .logo-cursor {
     color: var(--neon);
     animation: blink 1s step-end infinite;
+    text-shadow: 0 0 10px var(--glow);
 }
 
 @keyframes blink {
