@@ -269,120 +269,6 @@ body {
     line-height: 1.6;
 }
 
-/* Terminal Styles */
-.terminal-output {
-    font-family: 'JetBrains Mono', monospace;
-    margin: 0;
-    min-height: 100px;
-    padding: 1rem;
-    overflow-y: auto;
-}
-
-.welcome-header {
-    display: block;
-    color: #00ff00;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-}
-
-.welcome-text {
-    display: block;
-    color: #00ff00;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 3px rgba(0, 255, 0, 0.3);
-}
-
-.terminal-line {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
-
-.terminal-input-line {
-    display: flex;
-    align-items: center;
-    margin-top: 0.5rem;
-    position: relative;
-}
-
-.terminal-input {
-    background: transparent;
-    border: none;
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    margin-left: 0.5rem;
-    outline: none;
-    width: 100%;
-    caret-color: var(--neon);
-}
-
-.terminal-input::placeholder {
-    color: var(--text);
-    opacity: 0.5;
-}
-
-.command {
-    color: var(--text);
-    margin-left: 0.5rem;
-}
-
-.command-output {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-    opacity: 0.9;
-}
-
-/* Terminal Message Styles */
-.error {
-    color: #ff4444;
-    text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
-}
-
-.path {
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--glow);
-}
-
-.help-header {
-    color: var(--neon);
-    display: block;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px var(--glow);
-}
-
-.command-name {
-    color: var(--neon);
-    text-shadow: 0 0 5px var(--glow);
-}
-
-/* File Content Display */
-.file-content {
-    background: rgba(10, 5, 5, 0.95);
-    border: 1px solid var(--neon);
-    border-radius: var(--radius);
-    padding: 1rem;
-    margin: 1rem 0;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    box-shadow: 0 0 20px rgba(255, 51, 51, 0.1);
-}
-
-.file-content-header {
-    color: var(--neon);
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 51, 51, 0.2);
-    text-shadow: 0 0 10px var(--glow);
-}
-
 /* Tree View Styles */
 .tree-view {
     color: var(--text);
@@ -390,36 +276,28 @@ body {
 
 .tree-folder {
     margin-bottom: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.tree-folder:hover {
-    transform: translateX(5px);
 }
 
 .folder-header {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    transition: all 0.3s;
-}
-
-.folder-header:hover {
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--glow);
 }
 
 .folder-icon {
     color: var(--neon);
     margin-right: 0.5rem;
-    text-shadow: 0 0 10px var(--glow);
+    font-family: monospace;
 }
 
 .folder-name {
     color: var(--neon);
     font-weight: 600;
-    text-shadow: 0 0 10px var(--glow);
+}
+
+.tree-subfolder {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .tree-files {
@@ -430,31 +308,23 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 0.25rem;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.tree-file:hover {
-    transform: translateX(5px);
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--glow);
+    font-family: monospace;
 }
 
 .file-icon {
     color: var(--neon);
     margin-right: 0.5rem;
     white-space: pre;
-    text-shadow: 0 0 10px var(--glow);
 }
 
-.file-name {
+.file-link {
     color: var(--text);
-    transition: all 0.3s;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.tree-file:hover .file-name {
+.file-link:hover {
     color: var(--neon);
-    text-shadow: 0 0 10px var(--glow);
 }
 
 .file-description {
@@ -462,19 +332,6 @@ body {
     opacity: 0.7;
     margin-left: 0.5rem;
     font-style: italic;
-    transition: all 0.3s;
-}
-
-.tree-file:hover .file-description {
-    opacity: 0.9;
-    color: var(--neon);
-    text-shadow: 0 0 5px var(--glow);
-}
-
-/* Command History */
-.command-history {
-    color: var(--text);
-    opacity: 0.7;
 }
 
 /* Footer */
@@ -628,7 +485,7 @@ body::after {
     50% {
         opacity: 0.8;
         transform: scale(1.05);
-}
+    }
 }
 
 /* Tech Overlay */
@@ -649,6 +506,20 @@ body::after {
 @keyframes overlayPulse {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 0.8; }
+}
+
+/* Cursor Trail */
+.cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--neon) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    filter: blur(2px);
+    transform: translate(-50%, -50%);
 }
 
 /* Logo Styles */

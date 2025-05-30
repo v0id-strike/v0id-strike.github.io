@@ -9,6 +9,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        // Add cursor trail effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor-trail';
+            document.body.appendChild(cursor);
+
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animate() {
+                const dx = mouseX - cursorX;
+                const dy = mouseY - cursorY;
+                
+                cursorX += dx * 0.1;
+                cursorY += dy * 0.1;
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+        });
+    </script>
 </head>
 <body>
     <div class="tech-overlay"></div>
@@ -49,449 +81,439 @@
                 <span class="terminal-title">/notes</span>
             </div>
             <div class="terminal-body">
-                <div class="terminal-output" id="terminalOutput">
-                    <div class="terminal-line">
-                        <span class="prompt">$</span>
-                        <span class="command"></span>
-                    </div>
-                    <div class="command-output" id="lsOutput" style="display: none;">
+                <div class="tree-view">
+                    
+                    
+                    
+                    
                         
                         
                         
-
-                            
-                            
-                            
-                            
-                            
-                                
-                                <div class="tree-folder" data-path="/notes/Home-Lab">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">Home-Lab</span>
-                                    </div>
-                                    <div class="tree-files">
-                                
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/1) Lab Overview" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Lab Overview</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/2) OpnSense" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">OpnSense</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/3) BlackArch" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">BlackArch</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/4) Arch" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Arch</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/5) Ubuntu Server" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Ubuntu Server</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/6) Fedora Server" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Fedora Server</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/7) HackMyVM" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Hack My VM</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Home-Lab/HackMyVM/Todd" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Todd</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                                
-                                    </div>
+                        
+                        
+                            
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">Home-Lab</span>
                                 </div>
-                                
-                                <div class="tree-folder" data-path="/notes/Linux">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">Linux</span>
-                                    </div>
-                                    <div class="tree-files">
-                                
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/1-Introduction" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Introduction to Linux</span>
-                                
-                                    <span class="file-description">// Comprehensive introduction to Linux operating system and its role in cybersecurity</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/2-The_Shell" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">The Linux Shell</span>
-                                
-                                    <span class="file-description">// Understanding and mastering the Linux shell environment</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/3-Unix Commands" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Unix Commands</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/Seperating $HOME" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Separating $HOME</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/TimeShift" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">TimeShift</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/VirtualBox" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Virtualbox</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Linux/ssh" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">SSH</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                                
-                                    </div>
-                                </div>
-                                
-                                <div class="tree-folder" data-path="/notes/Main">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">Main</span>
-                                    </div>
-                                    <div class="tree-files">
-                                
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Main/About" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">About</span>
-                                
-                                    <span class="file-description">// Information about this cybersecurity knowledge base</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                                
-                                    </div>
-                                </div>
-                                
-                                <div class="tree-folder" data-path="/notes/Networking">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">Networking</span>
-                                    </div>
-                                    <div class="tree-files">
-                                
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Networking/1) Network Structure" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Network Structure</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Networking/2) Networking Workflow" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Networking Workflow</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Networking/3) Addressing" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Addressing</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Networking/4) Protocols &amp; Terminology" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Protocols &amp; Terminology</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Networking/5) Connection Establishment" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Connection Establishment</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                                
-                                    </div>
-                                </div>
-                                
-                                <div class="tree-folder" data-path="/notes/Offensive">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">Offensive</span>
-                                    </div>
-                                    <div class="tree-files">
-                                
-                            
-                            
-                            <div class="tree-file" data-path="/notes/Offensive/WiFi Cracking" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Wifi Cracking</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                                
-                                    </div>
-                                </div>
-                                
-                                <div class="tree-folder" data-path="/notes/To-Sort">
-                                    <div class="folder-header">
-                                        <span class="folder-icon">📁</span>
-                                        <span class="folder-name">To-Sort</span>
-                                    </div>
-                                    <div class="tree-files">
-                                
-                            
-                            
-                            <div class="tree-file" data-path="/notes/To-Sort/GPG-101" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">GPG-101</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/To-Sort/Git Notes" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">Git Notes</span>
-                                
-                            </div>
-                            
-                            
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            <div class="tree-file" data-path="/notes/To-Sort/NetCat to full TTY" data-content="">
-                                <span class="file-icon">└── 📄</span>
-                                <span class="file-name">NetCat to Full TTY</span>
-                                
-                            </div>
-                            
+                                <div class="tree-files">
+                            
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/1) Lab Overview/" class="file-link">Lab Overview</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/2) OpnSense/" class="file-link">OpnSense</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/3) BlackArch/" class="file-link">BlackArch</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/4) Arch/" class="file-link">Arch</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/5) Ubuntu Server/" class="file-link">Ubuntu Server</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/6) Fedora Server/" class="file-link">Fedora Server</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/7) HackMyVM/" class="file-link">Hack My VM</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Home-Lab/HackMyVM/Todd/" class="file-link">Todd</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
                             
                                 </div>
                             </div>
-            
-
-                    </div>
-                </div>
-                <div class="terminal-input-line">
-                    <span class="prompt">$</span>
-                    <input type="text" class="terminal-input" id="terminalInput" autofocus>
+                            
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">Linux</span>
+                                </div>
+                                <div class="tree-files">
+                            
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/1-Introduction/" class="file-link">Introduction to Linux</a>
+                            
+                                <span class="file-description">// Comprehensive introduction to Linux operating system and its role in cybersecurity</span>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/2-The_Shell/" class="file-link">The Linux Shell</a>
+                            
+                                <span class="file-description">// Understanding and mastering the Linux shell environment</span>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/3-Unix Commands/" class="file-link">Unix Commands</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/Seperating $HOME/" class="file-link">Separating $HOME</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/TimeShift/" class="file-link">TimeShift</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/VirtualBox/" class="file-link">Virtualbox</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Linux/ssh/" class="file-link">SSH</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                            
+                                </div>
+                            </div>
+                            
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">Main</span>
+                                </div>
+                                <div class="tree-files">
+                            
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Main/About/" class="file-link">About</a>
+                            
+                                <span class="file-description">// Information about this cybersecurity knowledge base</span>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                            
+                                </div>
+                            </div>
+                            
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">Networking</span>
+                                </div>
+                                <div class="tree-files">
+                            
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Networking/1) Network Structure/" class="file-link">Network Structure</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Networking/2) Networking Workflow/" class="file-link">Networking Workflow</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Networking/3) Addressing/" class="file-link">Addressing</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Networking/4) Protocols &amp; Terminology/" class="file-link">Protocols &amp; Terminology</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Networking/5) Connection Establishment/" class="file-link">Connection Establishment</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                            
+                                </div>
+                            </div>
+                            
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">Offensive</span>
+                                </div>
+                                <div class="tree-files">
+                            
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/Offensive/WiFi Cracking/" class="file-link">Wifi Cracking</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                            
+                                </div>
+                            </div>
+                            
+                            <div class="tree-folder">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">To-Sort</span>
+                                </div>
+                                <div class="tree-files">
+                            
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/To-Sort/GPG-101/" class="file-link">GPG-101</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/To-Sort/Git Notes/" class="file-link">Git Notes</a>
+                            
+                        </div>
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tree-file">
+                            <span class="file-icon">└── 📄</span>
+                            <a href="/posts/To-Sort/NetCat to full TTY/" class="file-link">NetCat to Full TTY</a>
+                            
+                        </div>
+                        
+                        
+                            </div>
+                        </div>
+                        
+                    
                 </div>
             </div>
         </div>
@@ -530,7 +552,7 @@
     </div>
 </section>
     </main>
-    
+
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-info">
@@ -548,224 +570,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Terminal functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const terminalInput = document.getElementById('terminalInput');
-            const terminalOutput = document.getElementById('terminalOutput');
-            let currentPath = '/notes';  // Start from /notes directory
-            let commandHistory = [];
-            let historyIndex = -1;
-
-            // Add welcome message and show initial directory contents
-            const welcomeMessage = `
-<span class="welcome-header">Welcome to Void-Strike's Terminal</span>
-<span class="welcome-text">Type <span class="command-name">help</span> to see available commands</span>
-<span class="welcome-text">Current directory: <span class="path">/notes</span></span>
-            `;
-            terminalOutput.innerHTML = welcomeMessage;
-
-            function getCurrentDirectoryContents() {
-                if (currentPath === '/notes') {
-                    const rootDir = document.getElementById('lsOutput');
-                    if (rootDir) {
-                        const folders = rootDir.querySelectorAll('.tree-folder');
-                        let output = '';
-                        folders.forEach(folder => {
-                            const folderName = folder.querySelector('.folder-name').textContent;
-                            output += `<div class="tree-folder" data-path="/notes/${folderName}">
-                                <div class="folder-header">
-                                    <span class="folder-icon">📁</span>
-                                    <span class="folder-name">${folderName}</span>
-                                </div>
-                            </div>`;
-                        });
-                        return output;
-                    }
-                    return null;
-                }
-
-                const pathParts = currentPath.split('/').filter(Boolean);
-                let currentElement = document.getElementById('lsOutput');
-                
-                // Navigate to the current directory
-                for (const part of pathParts) {
-                    const nextElement = currentElement.querySelector(`[data-path="/notes/${part}"]`);
-                    if (nextElement) {
-                        currentElement = nextElement.querySelector('.tree-files');
-                    } else {
-                        return null;
-                    }
-                }
-                
-                if (currentElement) {
-                    const files = currentElement.querySelectorAll('.tree-file');
-                    let output = '';
-                    files.forEach(file => {
-                        const fileName = file.querySelector('.file-name').textContent;
-                        const fileDesc = file.querySelector('.file-description')?.textContent || '';
-                        output += `<div class="tree-file" data-path="${file.getAttribute('data-path')}" data-content="${file.getAttribute('data-content')}">
-                            <span class="file-icon">└── 📄</span>
-                            <span class="file-name">${fileName}</span>
-                            ${fileDesc ? `<span class="file-description">${fileDesc}</span>` : ''}
-                        </div>`;
-                    });
-                    return output;
-                }
-                
-                return null;
-            }
-
-            // Show initial directory contents
-            const initialLsOutput = document.getElementById('lsOutput');
-            if (initialLsOutput) {
-                const folders = initialLsOutput.querySelectorAll('.tree-folder');
-                let output = '';
-                folders.forEach(folder => {
-                    const folderName = folder.querySelector('.folder-name').textContent;
-                    output += `<div class="tree-folder" data-path="/notes/${folderName}">
-                        <div class="folder-header">
-                            <span class="folder-icon">📁</span>
-                            <span class="folder-name">${folderName}</span>
-                        </div>
-                    </div>`;
-                });
-                terminalOutput.innerHTML = welcomeMessage + output;
-            } else {
-                terminalOutput.innerHTML = welcomeMessage;
-            }
-
-            function createTerminalLine(command, output = '') {
-                const line = document.createElement('div');
-                line.className = 'terminal-line';
-                
-                const prompt = document.createElement('span');
-                prompt.className = 'prompt';
-                prompt.textContent = '$';
-                
-                const cmd = document.createElement('span');
-                cmd.className = 'command';
-                cmd.textContent = command;
-                
-                line.appendChild(prompt);
-                line.appendChild(cmd);
-                
-                if (output) {
-                    const outputDiv = document.createElement('div');
-                    outputDiv.className = 'command-output';
-                    outputDiv.innerHTML = output;
-                    line.appendChild(outputDiv);
-                }
-                
-                return line;
-            }
-
-            function executeCommand(command) {
-                const [cmd, ...args] = command.trim().split(' ');
-                
-                switch(cmd.toLowerCase()) {
-                    case 'ls':
-                        const currentDir = getCurrentDirectoryContents();
-                        if (currentDir !== null) {
-                            terminalOutput.appendChild(createTerminalLine(command, currentDir));
-                        } else {
-                            terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
-                        }
-                        break;
-                        
-                    case 'cd':
-                        if (!args[0] || args[0] === '..') {
-                            currentPath = '/notes';  // Always go back to root
-                        } else {
-                            const newPath = `${currentPath}/${args[0]}`.replace(/\/+/g, '/');
-                            const targetDir = document.querySelector(`[data-path="${newPath}"]`);
-                            if (targetDir && targetDir.classList.contains('tree-folder')) {
-                                currentPath = newPath;
-                            } else {
-                                terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
-                            }
-                        }
-                        terminalOutput.appendChild(createTerminalLine(command, `<span class="path">Current directory: ${currentPath}</span>`));
-                        break;
-                        
-                    case 'cat':
-                        if (args[0]) {
-                            const file = document.querySelector(`[data-path$="${args[0]}"]`);
-                            if (file && file.classList.contains('tree-file')) {
-                                const content = file.getAttribute('data-content');
-                                const fileContent = document.createElement('div');
-                                fileContent.className = 'file-content';
-                                
-                                const header = document.createElement('div');
-                                header.className = 'file-content-header';
-                                header.textContent = `File: ${args[0]}`;
-                                
-                                const contentDiv = document.createElement('div');
-                                contentDiv.textContent = content;
-                                
-                                fileContent.appendChild(header);
-                                fileContent.appendChild(contentDiv);
-                                
-                                terminalOutput.appendChild(createTerminalLine(command, fileContent.outerHTML));
-                            } else {
-                                terminalOutput.appendChild(createTerminalLine(command, '<span class="error">File not found</span>'));
-                            }
-                        } else {
-                            terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Please specify a file</span>'));
-                        }
-                        break;
-                        
-                    case 'clear':
-                        terminalOutput.innerHTML = '';
-                        break;
-                        
-                    case 'help':
-                        const helpText = `
-<span class="help-header">Available commands:</span>
-  <span class="command-name">ls</span>              - List directory contents
-  <span class="command-name">cd [directory]</span>  - Change directory
-  <span class="command-name">cat [file]</span>      - Display file contents
-  <span class="command-name">clear</span>           - Clear terminal
-  <span class="command-name">help</span>            - Show this help message
-                        `;
-                        terminalOutput.appendChild(createTerminalLine(command, helpText));
-                        break;
-                        
-                    default:
-                        if (command.trim()) {
-                            terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Command not found. Type "help" for available commands.</span>'));
-                        }
-                }
-                
-                if (command.trim()) {
-                    commandHistory.push(command);
-                    historyIndex = commandHistory.length;
-                }
-            }
-
-            terminalInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    const command = terminalInput.value;
-                    executeCommand(command);
-                    terminalInput.value = '';
-                } else if (e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    if (historyIndex > 0) {
-                        historyIndex--;
-                        terminalInput.value = commandHistory[historyIndex];
-                    }
-                } else if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    if (historyIndex < commandHistory.length - 1) {
-                        historyIndex++;
-                        terminalInput.value = commandHistory[historyIndex];
-                    } else {
-                        historyIndex = commandHistory.length;
-                        terminalInput.value = '';
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
