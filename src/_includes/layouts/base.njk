@@ -13,41 +13,23 @@
 </head>
 <body>
     <div class="tech-overlay"></div>
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="/" class="nav-logo">
-                <span class="logo-text">Void-Strike</span>
-                <span class="logo-cursor">_</span>
-            </a>
-            <div class="nav-links">
-                <a href="/" class="nav-link" data-text="Home">Home</a>
-                <a href="#notes" class="nav-link" data-text="Notes">Notes</a>
-                <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
-                <a href="#about" class="nav-link" data-text="About">About</a>
+    <div class="terminal-wrapper">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button red"></div>
+                    <div class="terminal-button yellow"></div>
+                    <div class="terminal-button green"></div>
+                </div>
+                <div class="terminal-title">void-strike@terminal:~</div>
+            </div>
+            <div class="terminal-body">
+                <div class="welcome-message">
+                    Welcome to Void-Strike's Terminal
+                    Type 'help' to see available commands
+                </div>
             </div>
         </div>
-    </nav>
-
-    <main>
-        {{ content | safe }}
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <p class="footer-text">
-                    <span class="prompt">$</span> echo "© {{ page.date.getFullYear() }} Void-Strike"
-                </p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/v0id-strike" class="social-link" target="_blank" rel="noopener" data-text="GitHub">
-                    <span class="link-icon">[</span>GitHub<span class="link-icon">]</span>
-                </a>
-                <a href="https://t.me/v0id_strike" class="social-link" target="_blank" rel="noopener" data-text="Telegram">
-                    <span class="link-icon">[</span>Telegram<span class="link-icon">]</span>
-                </a>
-            </div>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
