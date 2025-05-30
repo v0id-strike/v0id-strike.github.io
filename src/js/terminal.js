@@ -3,11 +3,14 @@ class Terminal {
         this.container = container;
         this.history = [];
         this.historyIndex = -1;
+        this.currentPath = '/';
         this.commands = {
             help: () => this.printHelp(),
             clear: () => this.clear(),
             echo: (args) => this.echo(args),
             ls: () => this.ls(),
+            cd: (args) => this.cd(args),
+            pwd: () => this.pwd(),
             about: () => this.about(),
             contact: () => this.contact()
         };
@@ -26,6 +29,12 @@ class Terminal {
         
         this.input = this.inputLine.querySelector('input');
         this.setupEventListeners();
+        
+        // Print welcome message
+        this.print(`
+Welcome to Void-Strike's Terminal
+Type 'help' for available commands
+        `);
     }
 
     setupEventListeners() {
@@ -103,7 +112,9 @@ Available commands:
   help     - Show this help message
   clear    - Clear the terminal
   echo     - Print text to the terminal
-  ls       - List available sections
+  ls       - List contents of current directory
+  cd       - Change directory
+  pwd      - Print current working directory
   about    - Show information about me
   contact  - Show contact information
         `);
@@ -118,14 +129,116 @@ Available commands:
         this.print(args.join(' '));
     }
 
+    pwd() {
+        this.print(this.currentPath);
+    }
+
+    cd(args) {
+        if (!args.length) {
+            this.currentPath = '/';
+            return;
+        }
+
+        const target = args[0];
+        
+        if (target === '..') {
+            if (this.currentPath === '/') return;
+            this.currentPath = this.currentPath.split('/').slice(0, -1).join('/') || '/';
+            return;
+        }
+
+        if (target === '/') {
+            this.currentPath = '/';
+            return;
+        }
+
+        // Handle navigation to /notes
+        if (this.currentPath === '/' && target === 'notes') {
+            this.currentPath = '/notes';
+            return;
+        }
+
+        // Handle navigation within /notes
+        if (this.currentPath === '/notes') {
+            // Check if the target is a valid category
+            const categories = this.getPostCategories();
+            if (categories.includes(target)) {
+                this.currentPath = `/notes/${target}`;
+                return;
+            }
+        }
+
+        this.print(`cd: no such directory: ${target}`);
+    }
+
     ls() {
-        this.print(`
-Sections:
-  /home     - Home page
-  /notes    - Security notes and writeups
-  /projects - My projects
-  /about    - About me
-        `);
+        if (this.currentPath === '/') {
+            this.print(`
+Directory listing:
+  notes/     - Security notes and writeups
+  projects/  - My projects
+  about/     - About me
+            `);
+            return;
+        }
+
+        if (this.currentPath === '/notes') {
+            const categories = this.getPostCategories();
+            const listing = categories.map(cat => `  ${cat}/`).join('\n');
+            this.print(`
+Directory listing:
+${listing}
+            `);
+            return;
+        }
+
+        if (this.currentPath.startsWith('/notes/')) {
+            const category = this.currentPath.split('/').pop();
+            const posts = this.getPostsByCategory(category);
+            const listing = posts.map(post => `  ${post.title}`).join('\n');
+            this.print(`
+Directory listing:
+${listing}
+            `);
+            return;
+        }
+
+        this.print('ls: directory not found');
+    }
+
+    getPostCategories() {
+        // This would typically fetch from your actual posts data
+        // For now, returning a static list
+        return [
+            'web-security',
+            'network-security',
+            'malware-analysis',
+            'ctf-writeups'
+        ];
+    }
+
+    getPostsByCategory(category) {
+        // This would typically fetch from your actual posts data
+        // For now, returning static data
+        const posts = {
+            'web-security': [
+                { title: 'XSS-Attacks.md', date: '2024-03-20' },
+                { title: 'SQL-Injection.md', date: '2024-03-15' }
+            ],
+            'network-security': [
+                { title: 'Network-Scanning.md', date: '2024-03-18' },
+                { title: 'Firewall-Config.md', date: '2024-03-10' }
+            ],
+            'malware-analysis': [
+                { title: 'Ransomware-Analysis.md', date: '2024-03-12' },
+                { title: 'Trojan-Investigation.md', date: '2024-03-05' }
+            ],
+            'ctf-writeups': [
+                { title: 'HackTheBox-Writeup.md', date: '2024-03-19' },
+                { title: 'TryHackMe-Walkthrough.md', date: '2024-03-14' }
+            ]
+        };
+        return posts[category] || [];
     }
 
     about() {

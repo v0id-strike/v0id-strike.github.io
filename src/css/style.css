@@ -227,9 +227,18 @@ body {
     box-shadow: 
         0 0 20px rgba(255, 51, 51, 0.15),
         inset 0 0 20px rgba(255, 51, 51, 0.05);
-    font-family: 'Courier New', monospace;
+    font-family: 'JetBrains Mono', monospace;
     margin: 2rem 0;
     overflow: hidden;
+    border-radius: var(--radius);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.terminal-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 25px rgba(255, 51, 51, 0.2),
+        inset 0 0 30px rgba(255, 51, 51, 0.1);
 }
 
 .terminal-header {
@@ -250,6 +259,11 @@ body {
     height: 12px;
     border-radius: 50%;
     display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.terminal-button:hover {
+    opacity: 0.7;
 }
 
 .terminal-button.red { background: #ff4444; }
@@ -276,12 +290,39 @@ body {
     margin-bottom: 0.5rem;
     white-space: pre-wrap;
     word-break: break-word;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.terminal-line a {
+    color: var(--neon);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.terminal-line a:hover {
+    color: var(--text);
+}
+
+.terminal-line a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--neon);
+    box-shadow: 0 0 8px var(--glow);
 }
 
 .terminal-input-line {
     display: flex;
     align-items: center;
     margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    animation: fadeIn 0.3s ease-out;
 }
 
 .terminal-input {
@@ -293,11 +334,41 @@ body {
     margin-left: 0.5rem;
     outline: none;
     width: 100%;
+    caret-color: var(--neon);
 }
 
 .terminal-input::placeholder {
     color: var(--text);
     opacity: 0.5;
+}
+
+/* Directory listing styles */
+.terminal-line .directory {
+    color: var(--neon);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.terminal-line .directory:hover {
+    color: var(--text);
+}
+
+.terminal-line .file {
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.terminal-line .file:hover {
+    color: var(--neon);
+}
+
+.terminal-line .file::before {
+    content: '📄 ';
+}
+
+.terminal-line .directory::before {
+    content: '📁 ';
 }
 
 /* Terminal scrollbar */
@@ -312,6 +383,7 @@ body {
 .terminal-body::-webkit-scrollbar-thumb {
     background: var(--neon);
     border-radius: 4px;
+    transition: background 0.3s;
 }
 
 .terminal-body::-webkit-scrollbar-thumb:hover {
@@ -429,7 +501,7 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -453,6 +525,21 @@ body {
     
     .cards-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .terminal-container {
+        margin: 1rem 0;
+    }
+    
+    .terminal-body {
+        min-height: 150px;
+        max-height: 400px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
     }
 }
 
