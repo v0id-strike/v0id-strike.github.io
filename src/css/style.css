@@ -504,33 +504,19 @@ body::after {
 }
 
 @keyframes overlayPulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.8; }
-}
-
-/* Cursor Trail */
-.cursor-trail {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, var(--neon) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.5;
-    filter: blur(2px);
-    transform: translate(-50%, -50%);
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
 }
 
 /* Logo Styles */
 .nav-logo {
     display: flex;
     align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-    color: var(--neon);
     text-decoration: none;
-    position: relative;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .logo-text {
