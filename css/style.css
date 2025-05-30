@@ -231,6 +231,8 @@ body {
     height: 100vh;
     padding: 2rem;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 
 .terminal-container {
@@ -241,6 +243,8 @@ body {
         0 0 20px rgba(255, 51, 51, 0.15),
         inset 0 0 20px rgba(255, 51, 51, 0.05);
     height: 100%;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
