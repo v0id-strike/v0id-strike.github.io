@@ -272,8 +272,26 @@ body {
 /* Terminal Styles */
 .terminal-output {
     font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    min-height: 100px;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.welcome-header {
+    display: block;
+    color: #00ff00;
+    font-size: 1.2em;
+    font-weight: bold;
     margin-bottom: 1rem;
-    min-height: 200px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.welcome-text {
+    display: block;
+    color: #00ff00;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 3px rgba(0, 255, 0, 0.3);
 }
 
 .terminal-line {
