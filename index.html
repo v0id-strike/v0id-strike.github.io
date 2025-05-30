@@ -9,38 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-        // Add cursor trail effect
-        document.addEventListener('DOMContentLoaded', () => {
-            const cursor = document.createElement('div');
-            cursor.className = 'cursor-trail';
-            document.body.appendChild(cursor);
-
-            let mouseX = 0;
-            let mouseY = 0;
-            let cursorX = 0;
-            let cursorY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            function animate() {
-                const dx = mouseX - cursorX;
-                const dy = mouseY - cursorY;
-                
-                cursorX += dx * 0.1;
-                cursorY += dy * 0.1;
-                
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
-                
-                requestAnimationFrame(animate);
-            }
-            animate();
-        });
-    </script>
 </head>
 <body>
     <div class="tech-overlay"></div>
@@ -84,7 +52,7 @@
                 <div class="terminal-output" id="terminalOutput">
                     <div class="terminal-line">
                         <span class="prompt">$</span>
-                        <span class="command"></span>
+                        <span class="command">help</span>
                     </div>
                     <div class="command-output" id="lsOutput" style="display: none;">
                         
