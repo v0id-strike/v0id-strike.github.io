@@ -1,9 +1,9 @@
 ---
-title: "02 - The Linux Shell"
-description: "Understanding and mastering the Linux shell environment"
-date: 2024-01-01
-place: 1  # Same place as Introduction (first section)
-order: 2  # Second article in this section
+title: 02 - The Linux Shell
+description: Understanding and mastering the Linux shell environment
+date: 2025-05-30
+place: 1
+order: 2
 categories:
   - Linux
   - Shell

@@ -1,7 +1,7 @@
 ---
 title: 01 - Introduction to Linux
 description: Comprehensive introduction to Linux operating system and its role in cybersecurity
-date: 2024-01-01
+date: 2025-05-30
 place: 2
 order: 1
 categories:
