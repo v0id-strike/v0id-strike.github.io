@@ -58,12 +58,16 @@
             let historyIndex = -1;
 
             function getCurrentDirectoryContents() {
+                if (currentPath === '/posts') {
+                    return document.getElementById('lsOutput');
+                }
+
                 const pathParts = currentPath.split('/').filter(Boolean);
                 let currentElement = document.getElementById('lsOutput');
                 
                 // Navigate to the current directory
                 for (const part of pathParts) {
-                    const nextElement = currentElement.querySelector(`[data-path="${part}"]`);
+                    const nextElement = currentElement.querySelector(`[data-path="/posts/${part}"]`);
                     if (nextElement) {
                         currentElement = nextElement.querySelector('.tree-files');
                     } else {
