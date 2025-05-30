@@ -53,9 +53,26 @@
         document.addEventListener('DOMContentLoaded', () => {
             const terminalInput = document.getElementById('terminalInput');
             const terminalOutput = document.getElementById('terminalOutput');
-            let currentPath = '/notes';
+            let currentPath = '/posts';  // Start from /posts directory
             let commandHistory = [];
             let historyIndex = -1;
+
+            function getCurrentDirectoryContents() {
+                const pathParts = currentPath.split('/').filter(Boolean);
+                let currentElement = document.getElementById('lsOutput');
+                
+                // Navigate to the current directory
+                for (const part of pathParts) {
+                    const nextElement = currentElement.querySelector(`[data-path="${part}"]`);
+                    if (nextElement) {
+                        currentElement = nextElement.querySelector('.tree-files');
+                    } else {
+                        return null;
+                    }
+                }
+                
+                return currentElement;
+            }
 
             function createTerminalLine(command, output = '') {
                 const line = document.createElement('div');
@@ -87,17 +104,23 @@
                 
                 switch(cmd.toLowerCase()) {
                     case 'ls':
-                        const lsOutput = document.getElementById('lsOutput').cloneNode(true);
-                        lsOutput.style.display = 'block';
-                        terminalOutput.appendChild(createTerminalLine(command, lsOutput.innerHTML));
+                        const currentDir = getCurrentDirectoryContents();
+                        if (currentDir) {
+                            const lsOutput = currentDir.cloneNode(true);
+                            lsOutput.style.display = 'block';
+                            terminalOutput.appendChild(createTerminalLine(command, lsOutput.innerHTML));
+                        } else {
+                            terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
+                        }
                         break;
                         
                     case 'cd':
                         if (args[0] === '..') {
-                            currentPath = currentPath.split('/').slice(0, -1).join('/') || '/';
+                            currentPath = currentPath.split('/').slice(0, -1).join('/') || '/posts';
                         } else if (args[0]) {
                             const newPath = `${currentPath}/${args[0]}`.replace(/\/+/g, '/');
-                            if (document.querySelector(`[data-path="${newPath}"]`)) {
+                            const targetDir = document.querySelector(`[data-path="${newPath}"]`);
+                            if (targetDir && targetDir.classList.contains('tree-folder')) {
                                 currentPath = newPath;
                             } else {
                                 terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
@@ -109,7 +132,7 @@
                     case 'cat':
                         if (args[0]) {
                             const file = document.querySelector(`[data-path$="${args[0]}"]`);
-                            if (file) {
+                            if (file && file.classList.contains('tree-file')) {
                                 const content = file.getAttribute('data-content');
                                 const fileContent = document.createElement('div');
                                 fileContent.className = 'file-content';
