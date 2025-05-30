@@ -65,14 +65,6 @@
             `;
             terminalOutput.innerHTML = welcomeMessage;
 
-            // Show initial directory contents
-            const initialLsOutput = document.getElementById('lsOutput');
-            if (initialLsOutput) {
-                const lsOutput = initialLsOutput.cloneNode(true);
-                lsOutput.style.display = 'block';
-                terminalOutput.appendChild(lsOutput);
-            }
-
             function getCurrentDirectoryContents() {
                 if (currentPath === '/notes') {
                     const rootDir = document.getElementById('lsOutput');
@@ -122,6 +114,25 @@
                 }
                 
                 return null;
+            }
+
+            // Show initial directory contents
+            const initialLsOutput = document.getElementById('lsOutput');
+            if (initialLsOutput) {
+                const folders = initialLsOutput.querySelectorAll('.tree-folder');
+                let output = '';
+                folders.forEach(folder => {
+                    const folderName = folder.querySelector('.folder-name').textContent;
+                    output += `<div class="tree-folder" data-path="/notes/${folderName}">
+                        <div class="folder-header">
+                            <span class="folder-icon">📁</span>
+                            <span class="folder-name">${folderName}</span>
+                        </div>
+                    </div>`;
+                });
+                terminalOutput.innerHTML = welcomeMessage + output;
+            } else {
+                terminalOutput.innerHTML = welcomeMessage;
             }
 
             function createTerminalLine(command, output = '') {
