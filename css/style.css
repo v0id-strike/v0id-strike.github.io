@@ -273,18 +273,21 @@ body {
 .terminal-output {
     font-family: 'JetBrains Mono', monospace;
     margin-bottom: 1rem;
+    min-height: 200px;
 }
 
 .terminal-line {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 
 .terminal-input-line {
     display: flex;
     align-items: center;
     margin-top: 0.5rem;
+    position: relative;
 }
 
 .terminal-input {
@@ -296,6 +299,12 @@ body {
     margin-left: 0.5rem;
     outline: none;
     width: 100%;
+    caret-color: var(--neon);
+}
+
+.terminal-input::placeholder {
+    color: var(--text);
+    opacity: 0.5;
 }
 
 .command {
@@ -306,6 +315,31 @@ body {
 .command-output {
     margin-left: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--text);
+    opacity: 0.9;
+}
+
+/* Terminal Message Styles */
+.error {
+    color: #ff4444;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+}
+
+.path {
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
+}
+
+.help-header {
+    color: var(--neon);
+    display: block;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--glow);
+}
+
+.command-name {
+    color: var(--neon);
+    text-shadow: 0 0 5px var(--glow);
 }
 
 /* File Content Display */
@@ -320,6 +354,7 @@ body {
     line-height: 1.6;
     white-space: pre-wrap;
     overflow-x: auto;
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.1);
 }
 
 .file-content-header {
@@ -327,6 +362,7 @@ body {
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 51, 51, 0.2);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 /* Tree View Styles */
@@ -337,32 +373,35 @@ body {
 .tree-folder {
     margin-bottom: 1rem;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.tree-folder:hover {
+    transform: translateX(5px);
 }
 
 .folder-header {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .folder-header:hover {
     color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .folder-icon {
     color: var(--neon);
     margin-right: 0.5rem;
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .folder-name {
     color: var(--neon);
     font-weight: 600;
-}
-
-.tree-subfolder {
-    margin-left: 1.5rem;
-    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .tree-files {
@@ -374,26 +413,30 @@ body {
     align-items: center;
     margin-bottom: 0.25rem;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .tree-file:hover {
+    transform: translateX(5px);
     color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .file-icon {
     color: var(--neon);
     margin-right: 0.5rem;
     white-space: pre;
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .file-name {
     color: var(--text);
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .tree-file:hover .file-name {
     color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .file-description {
@@ -401,6 +444,13 @@ body {
     opacity: 0.7;
     margin-left: 0.5rem;
     font-style: italic;
+    transition: all 0.3s;
+}
+
+.tree-file:hover .file-description {
+    opacity: 0.9;
+    color: var(--neon);
+    text-shadow: 0 0 5px var(--glow);
 }
 
 /* Command History */
