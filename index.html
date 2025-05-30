@@ -575,7 +575,22 @@
 
             function getCurrentDirectoryContents() {
                 if (currentPath === '/notes') {
-                    return document.getElementById('lsOutput');
+                    const rootDir = document.getElementById('lsOutput');
+                    if (rootDir) {
+                        const folders = rootDir.querySelectorAll('.tree-folder');
+                        let output = '';
+                        folders.forEach(folder => {
+                            const folderName = folder.querySelector('.folder-name').textContent;
+                            output += `<div class="tree-folder" data-path="/notes/${folderName}">
+                                <div class="folder-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">${folderName}</span>
+                                </div>
+                            </div>`;
+                        });
+                        return output;
+                    }
+                    return null;
                 }
 
                 const pathParts = currentPath.split('/').filter(Boolean);
@@ -591,7 +606,22 @@
                     }
                 }
                 
-                return currentElement;
+                if (currentElement) {
+                    const files = currentElement.querySelectorAll('.tree-file');
+                    let output = '';
+                    files.forEach(file => {
+                        const fileName = file.querySelector('.file-name').textContent;
+                        const fileDesc = file.querySelector('.file-description')?.textContent || '';
+                        output += `<div class="tree-file" data-path="${file.getAttribute('data-path')}" data-content="${file.getAttribute('data-content')}">
+                            <span class="file-icon">└── 📄</span>
+                            <span class="file-name">${fileName}</span>
+                            ${fileDesc ? `<span class="file-description">${fileDesc}</span>` : ''}
+                        </div>`;
+                    });
+                    return output;
+                }
+                
+                return null;
             }
 
             function createTerminalLine(command, output = '') {
@@ -625,10 +655,8 @@
                 switch(cmd.toLowerCase()) {
                     case 'ls':
                         const currentDir = getCurrentDirectoryContents();
-                        if (currentDir) {
-                            const lsOutput = currentDir.cloneNode(true);
-                            lsOutput.style.display = 'block';
-                            terminalOutput.appendChild(createTerminalLine(command, lsOutput.innerHTML));
+                        if (currentDir !== null) {
+                            terminalOutput.appendChild(createTerminalLine(command, currentDir));
                         } else {
                             terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
                         }
