@@ -57,13 +57,21 @@
             let commandHistory = [];
             let historyIndex = -1;
 
-            // Add welcome message
+            // Add welcome message and show initial directory contents
             const welcomeMessage = `
 <span class="welcome-header">Welcome to Void-Strike's Terminal</span>
 <span class="welcome-text">Type <span class="command-name">help</span> to see available commands</span>
 <span class="welcome-text">Current directory: <span class="path">/notes</span></span>
             `;
             terminalOutput.innerHTML = welcomeMessage;
+
+            // Show initial directory contents
+            const initialLsOutput = document.getElementById('lsOutput');
+            if (initialLsOutput) {
+                const lsOutput = initialLsOutput.cloneNode(true);
+                lsOutput.style.display = 'block';
+                terminalOutput.appendChild(lsOutput);
+            }
 
             function getCurrentDirectoryContents() {
                 if (currentPath === '/notes') {
