@@ -120,6 +120,7 @@
                 switch(cmd.toLowerCase()) {
                     case 'ls':
                         const lsOutput = document.getElementById('lsOutput').cloneNode(true);
+                        lsOutput.style.display = 'block';
                         terminalOutput.appendChild(createTerminalLine(command, lsOutput.innerHTML));
                         break;
                         
@@ -131,10 +132,10 @@
                             if (document.querySelector(`[data-path="${newPath}"]`)) {
                                 currentPath = newPath;
                             } else {
-                                terminalOutput.appendChild(createTerminalLine(command, 'Directory not found'));
+                                terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
                             }
                         }
-                        terminalOutput.appendChild(createTerminalLine(command, `Current directory: ${currentPath}`));
+                        terminalOutput.appendChild(createTerminalLine(command, `<span class="path">Current directory: ${currentPath}</span>`));
                         break;
                         
                     case 'cat':
@@ -157,10 +158,10 @@
                                 
                                 terminalOutput.appendChild(createTerminalLine(command, fileContent.outerHTML));
                             } else {
-                                terminalOutput.appendChild(createTerminalLine(command, 'File not found'));
+                                terminalOutput.appendChild(createTerminalLine(command, '<span class="error">File not found</span>'));
                             }
                         } else {
-                            terminalOutput.appendChild(createTerminalLine(command, 'Please specify a file'));
+                            terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Please specify a file</span>'));
                         }
                         break;
                         
@@ -170,19 +171,19 @@
                         
                     case 'help':
                         const helpText = `
-Available commands:
-  ls              - List directory contents
-  cd [directory]  - Change directory
-  cat [file]      - Display file contents
-  clear           - Clear terminal
-  help            - Show this help message
+<span class="help-header">Available commands:</span>
+  <span class="command-name">ls</span>              - List directory contents
+  <span class="command-name">cd [directory]</span>  - Change directory
+  <span class="command-name">cat [file]</span>      - Display file contents
+  <span class="command-name">clear</span>           - Clear terminal
+  <span class="command-name">help</span>            - Show this help message
                         `;
                         terminalOutput.appendChild(createTerminalLine(command, helpText));
                         break;
                         
                     default:
                         if (command.trim()) {
-                            terminalOutput.appendChild(createTerminalLine(command, 'Command not found. Type "help" for available commands.'));
+                            terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Command not found. Type "help" for available commands.</span>'));
                         }
                 }
                 
@@ -214,9 +215,6 @@ Available commands:
                     }
                 }
             });
-
-            // Initial help message
-            executeCommand('help');
         });
     </script>
 </body>
