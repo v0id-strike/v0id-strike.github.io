@@ -1,9 +1,9 @@
 ---
-title: "01 - Introduction to Linux"
-description: "Comprehensive introduction to Linux operating system and its role in cybersecurity"
+title: 01 - Introduction to Linux
+description: Comprehensive introduction to Linux operating system and its role in cybersecurity
 date: 2024-01-01
-place: 1  # First major section in Linux category
-order: 1  # First article in this section
+place: 2
+order: 1
 categories:
   - Linux
 ---
