@@ -42,7 +42,7 @@ title: Void-Strike
                                     </div>
                                 </div>
                                 {% endif %}
-                                <div class="tree-folder" data-path="/posts/{{ group }}">
+                                <div class="tree-folder" data-path="/notes/{{ group }}">
                                     <div class="folder-header">
                                         <span class="folder-icon">📁</span>
                                         <span class="folder-name">{{ group }}</span>
@@ -51,7 +51,7 @@ title: Void-Strike
                                 {% set currentGroup = group %}
                             {% endif %}
                             
-                            <div class="tree-file" data-path="/posts/{{ path }}" data-content="{{ post.data.content | safe }}">
+                            <div class="tree-file" data-path="/notes/{{ path }}" data-content="{{ post.data.content | safe }}">
                                 <span class="file-icon">└── 📄</span>
                                 <span class="file-name">{{ post.data.title | cleanTitle }}</span>
                                 {% if post.data.description %}
