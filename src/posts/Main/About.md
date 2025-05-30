@@ -1,8 +1,6 @@
 ---
 title: "About"
-description: "Information about this cybersecurity knowledge base"
 date: 2024-01-01
-place: 1  # This will be the first item in the Main category
 order: 1  # This will be the first item in its place
 ---
 
