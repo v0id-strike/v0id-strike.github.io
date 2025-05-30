@@ -1,6 +1,5 @@
 ---
 title: Unix Commands
-description: Understanding and mastering the Linux shell environment
 date: 2025-05-30
 order: 3
 categories:
@@ -8,6 +7,7 @@ categories:
   - Shell
   - Commands
 ---
+
 Below is an **A to Z** reference of essential Unix/Linux commands. This will serve as your **quick-access arsenal** whenever you need to execute system tasks, automate workflows, or dominate the terminal like a pro
 
 ---
