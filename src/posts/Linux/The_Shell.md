@@ -1,8 +1,7 @@
 ---
-title: The Linux Shell
+title: 02 - The Linux Shell
 description: Understanding and mastering the Linux shell environment
 date: 2025-05-30
-place: 
 order: 2
 categories:
   - Linux
