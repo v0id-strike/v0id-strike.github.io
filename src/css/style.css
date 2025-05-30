@@ -233,6 +233,8 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    margin: 2rem;
+    height: calc(100vh - 4rem);
 }
 
 .terminal-container {
