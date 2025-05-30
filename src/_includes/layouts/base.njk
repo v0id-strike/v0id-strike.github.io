@@ -30,7 +30,7 @@
     <main>
         {{ content | safe }}
     </main>
-
+    
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-info">
@@ -61,17 +61,9 @@
             const welcomeMessage = `
 <span class="welcome-header">Welcome to Void-Strike's Terminal</span>
 <span class="welcome-text">Type <span class="command-name">help</span> to see available commands</span>
+<span class="welcome-text">Current directory: <span class="path">/notes</span></span>
             `;
             terminalOutput.innerHTML = welcomeMessage;
-
-            // Update terminal title with current directory
-            function updateTerminalTitle() {
-                const terminalTitle = document.querySelector('.terminal-title');
-                if (terminalTitle) {
-                    terminalTitle.textContent = `Terminal: ${currentPath}`;
-                }
-            }
-            updateTerminalTitle();
 
             // Show initial directory contents
             const initialLsOutput = document.getElementById('lsOutput');
@@ -182,7 +174,7 @@
                                 terminalOutput.appendChild(createTerminalLine(command, '<span class="error">Directory not found</span>'));
                             }
                         }
-                        updateTerminalTitle();
+                        terminalOutput.appendChild(createTerminalLine(command, `<span class="path">Current directory: ${currentPath}</span>`));
                         break;
                         
                     case 'cat':
