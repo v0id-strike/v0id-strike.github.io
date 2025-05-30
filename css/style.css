@@ -1,25 +1,25 @@
 :root {
-    --void: #1a0a0a;
-    --text: #ffe0e0;
-    --accent: #4a2a2a;
-    --neon: #ff2b2b;
-    --glow: rgba(255, 43, 43, 0.3);
-    --background: 0 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
+    --void: #0a0505;
+    --text: #ffffff;
+    --accent: #5a2a2a;
+    --neon: #ff3333;
+    --glow: rgba(255, 51, 51, 0.4);
+    --background: 0 10% 2%;
+    --foreground: 0 0% 100%;
+    --card: 0 10% 2%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 10% 2%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
     --primary-foreground: 0 5.9% 10%;
     --secondary: 0 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary-foreground: 0 0% 100%;
     --muted: 0 3.7% 15.9%;
-    --muted-foreground: 0 5% 64.9%;
+    --muted-foreground: 0 5% 80%;
     --accent: 0 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
     --border: 0 3.7% 15.9%;
     --input: 0 3.7% 15.9%;
     --ring: 0 4.9% 83.9%;
@@ -179,8 +179,8 @@ body {
 }
 
 .card {
-    background: rgba(74, 42, 42, 0.1);
-    border: 1px solid rgba(255, 43, 43, 0.1);
+    background: rgba(90, 42, 42, 0.15);
+    border: 1px solid rgba(255, 51, 51, 0.2);
     border-radius: var(--radius);
     padding: 2rem;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -188,7 +188,8 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 43, 43, 0.1);
+    box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
+    border-color: rgba(255, 51, 51, 0.4);
 }
 
 .card-title {
@@ -196,11 +197,12 @@ body {
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .card-description {
     color: var(--text);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 /* Terminal Container Styles */
@@ -208,14 +210,14 @@ body {
     background-color: var(--void);
     border: 1px solid var(--neon);
     border-radius: var(--radius);
-    box-shadow: 0 0 15px rgba(255, 43, 43, 0.1);
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.15);
     font-family: 'Courier New', monospace;
     margin: 2rem 0;
     overflow: hidden;
 }
 
 .terminal-header {
-    background: rgba(26, 10, 10, 0.9);
+    background: rgba(10, 5, 5, 0.95);
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
@@ -234,15 +236,15 @@ body {
     display: inline-block;
 }
 
-.terminal-button.red { background: #ff5f56; }
-.terminal-button.yellow { background: #ffbd2e; }
-.terminal-button.green { background: #27c93f; }
+.terminal-button.red { background: #ff4444; }
+.terminal-button.yellow { background: #ffcc33; }
+.terminal-button.green { background: #33cc33; }
 
 .terminal-title {
     color: var(--text);
     margin-left: 1rem;
     font-size: 0.8rem;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .terminal-body {
