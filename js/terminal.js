@@ -30,7 +30,7 @@ class Terminal {
         this.inputLine = document.createElement('div');
         this.inputLine.className = 'terminal-input-line';
         this.inputLine.innerHTML = `
-            <span class="prompt">void-strike@terminal:${this.currentPath}$</span>
+            <span class="prompt">${this.currentPath}$</span>
             <input type="text" class="terminal-input" autofocus>
         `;
         this.container.appendChild(this.inputLine);
