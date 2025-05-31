@@ -14,9 +14,24 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/images");
 
+    // Add date filter
+    eleventyConfig.addFilter("date", function(date) {
+        return new Date(date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    });
+
     // Add posts collection
     eleventyConfig.addCollection("posts", function(collection) {
-        return collection.getFilteredByGlob("src/posts/**/*.md");
+        return collection.getFilteredByGlob("src/posts/**/*.md").map(item => {
+            // Add default layout for markdown files
+            if (!item.data.layout) {
+                item.data.layout = "base.njk";
+            }
+            return item;
+        });
     });
 
     // Add getCategories filter
@@ -69,6 +84,9 @@ module.exports = function(eleventyConfig) {
         // Remove numbers and special characters from the beginning
         return title.replace(/^[\d\s\-_]+/, '').trim();
     });
+
+    // Add default layout for all markdown files
+    eleventyConfig.addGlobalData("layout", "base.njk");
 
     return {
         dir: {
