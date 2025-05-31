@@ -1,4 +1,39 @@
-<h2>Networking Models</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Void-Strike's Cyber Security Journey">
+    <title>Networking Workflow</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="tech-overlay"></div>
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-text">Void-Strike</span>
+                <span class="logo-cursor">_</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" data-text="Home">Home</a>
+                <a href="#notes" class="nav-link" data-text="Notes">Notes</a>
+                <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
+                <a href="#about" class="nav-link" data-text="About">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+        <div class="notes-container">
+            <article class="note">
+                <h1 class="note-title">Networking Workflow</h1>
+                <div class="note-content">
+                    <h2>Networking Models</h2>
 <p>Two networking models describe the communication and transfer of data from one host to another, called <code>ISO/OSI model</code> and the <code>TCP/IP model</code>. This is a simplified representation of the so-called <code>layers</code> representing transferred Bits in readable contents for us.</p>
 <p><img src="https://academy.hackthebox.com/storage/modules/34/redesigned/net_models4.png" alt="Model_Layers"></p>
 <hr>
@@ -127,3 +162,37 @@ The term <code>OSI</code> stands for <code>Open Systems Interconnection</code> m
 <p>During the transmission, each layer adds a <code>header</code> to the <code>PDU</code> from the upper layer, which controls and identifies the packet. This process is called <code>encapsulation</code>. The header and the data together form the PDU for the next layer. The process continues to the <code>Physical Layer</code> or <code>Network Layer</code>, where the data is transmitted to the receiver. The receiver reverses the process and unpacks the data on each layer with the header information. After that, the application finally uses the data. This process continues until all data has been sent and received.</p>
 <p><img src="https://academy.hackthebox.com/storage/modules/34/packet_transfer.png" alt="Diagram of packet transfer showing data encapsulation from sender to receiver through layers: Data, TCP, IP, MAC, and Binary Transmission, with corresponding headers and sequence."></p>
 <p>For us, as penetration testers, both reference models are useful. With <code>TCP/IP</code>, we can quickly understand how the entire connection is established, and with <code>ISO</code>, we can take it apart piece by piece and analyze it in detail. This often happens when we can listen to and intercept specific network traffic. We then have to analyze this traffic accordingly, going into more detail in the <code>Network Traffic Analysis</code> module. Therefore, we should familiarize ourselves with both reference models and understand and internalize them in the best possible way.</p>
+
+                </div>
+                <div class="note-meta">
+                    <span class="note-date">May 29, 2025</span>
+                    <div class="note-tags">
+                        
+                        <span class="note-tag">Network</span>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p class="footer-text">
+                    <span class="prompt">$</span> echo "© 2025 Void-Strike"
+                </p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/v0id-strike" class="social-link" target="_blank" rel="noopener" data-text="GitHub">
+                    <span class="link-icon">[</span>GitHub<span class="link-icon">]</span>
+                </a>
+                <a href="https://t.me/v0id_strike" class="social-link" target="_blank" rel="noopener" data-text="Telegram">
+                    <span class="link-icon">[</span>Telegram<span class="link-icon">]</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
