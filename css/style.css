@@ -696,13 +696,7 @@ body::after {
 
 /* Notes Section */
 .notes-container {
-    background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--neon);
-    border-radius: 4px;
-    padding: 2rem;
     margin: 2rem 0;
-    box-shadow: 0 0 20px var(--glow);
     position: relative;
     overflow: hidden;
 }
@@ -720,19 +714,12 @@ body::after {
 }
 
 .note {
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid var(--text);
-    border-radius: 4px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
     position: relative;
     transition: all 0.3s ease;
 }
 
 .note:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 15px var(--glow);
-    border-color: var(--neon);
 }
 
 .note-title {
