@@ -277,6 +277,7 @@ body {
     padding: 1.5rem;
     font-size: 0.9rem;
     line-height: 1.6;
+    overflow-x: auto;
 }
 
 .terminal-body h1,
@@ -338,10 +339,31 @@ body {
 .terminal-body ol {
     margin: 1rem 0;
     padding-left: 2rem;
+    padding-right: 1rem;
 }
 
 .terminal-body li {
     margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.terminal-body ol {
+    counter-reset: item;
+    list-style-type: none;
+}
+
+.terminal-body ol li {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.terminal-body ol li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    color: var(--neon);
+    font-weight: bold;
 }
 
 .terminal-body table {
