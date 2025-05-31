@@ -28,7 +28,26 @@
     </nav>
 
     <main>
+        {% if categories %}
+        <div class="notes-container">
+            <article class="note">
+                <h1 class="note-title">{{ title }}</h1>
+                <div class="note-content">
+                    {{ content | safe }}
+                </div>
+                <div class="note-meta">
+                    <span class="note-date">{{ date | date("YYYY-MM-DD") }}</span>
+                    <div class="note-tags">
+                        {% for category in categories %}
+                        <span class="note-tag">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+        </div>
+        {% else %}
         {{ content | safe }}
+        {% endif %}
     </main>
 
     <footer class="footer">
