@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">Git Notes</h1>
-                <div class="note-content">
-                    <h2>🔍 Compare Branches</h2>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">Git Notes</div>
+                    </div>
+                    <div class="terminal-body">
+                        <h2>🔍 Compare Branches</h2>
 <h3>🔹 Code Differences</h3>
 <pre><code class="language-bash">git diff develop..main           # Changes in main not in develop
 git diff main..develop           # Changes in develop not in main
@@ -96,6 +105,7 @@ git branch -D branch-name        # Force delete
 <pre><code class="language-bash">git fetch --prune
 </code></pre>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>

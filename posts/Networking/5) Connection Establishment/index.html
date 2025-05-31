@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">Connection Establishment</h1>
-                <div class="note-content">
-                    <h2>Key Exchange Mechanisms</h2>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">Connection Establishment</div>
+                    </div>
+                    <div class="terminal-body">
+                        <h2>Key Exchange Mechanisms</h2>
 <p>Key exchange methods are used to exchange <a href="https://www.cloudflare.com/learning/ssl/what-is-a-cryptographic-key/">cryptographic keys</a> between two parties securely. This is an essential part of many cryptographic protocols, as the security of the encryption used to protect communication relies on the secrecy of the keys. There are many key exchange methods, each with unique characteristics and strengths. Some key exchange methods are more secure than others, and the appropriate method depends on the situation's specific circumstances and requirements.</p>
 <p>These methods typically work by allowing the two parties to agree on a <code>shared secret key</code> over an insecure communication channel that encrypts the communication between them. This is generally done using some form of mathematical operation, such as a computation based on the properties of a mathematical function or a series of simple manipulations of the key.</p>
 <h4>Diffie-Hellman</h4>
@@ -449,6 +458,7 @@ rtt min/avg/max/mdev = 11.688/11.688/11.688/0.000 ms
 </table>
 <p>Each mode has its characteristics and is more suitable for certain use cases. The choice of encryption mode depends on the application's requirements and the security objectives to be achieved.</p>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>

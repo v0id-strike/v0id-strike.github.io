@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">Virtualbox</h1>
-                <div class="note-content">
-                    <h2><strong>1. Install Required Packages</strong></h2>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">Virtualbox</div>
+                    </div>
+                    <div class="terminal-body">
+                        <h2><strong>1. Install Required Packages</strong></h2>
 <p>Ensure you have <strong>ALL</strong> VirtualBox components:</p>
 <pre><code class="language-bash">sudo pacman -Sy virtualbox virtualbox-host-dkms virtualbox-guest-iso
 </code></pre>
@@ -83,6 +92,7 @@ sudo modprobe vboxdrv vboxnetadp vboxnetflt
 </li>
 </ul>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>

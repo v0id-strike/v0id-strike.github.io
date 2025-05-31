@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">Networking Workflow</h1>
-                <div class="note-content">
-                    <h2>Networking Models</h2>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">Networking Workflow</div>
+                    </div>
+                    <div class="terminal-body">
+                        <h2>Networking Models</h2>
 <p>Two networking models describe the communication and transfer of data from one host to another, called <code>ISO/OSI model</code> and the <code>TCP/IP model</code>. This is a simplified representation of the so-called <code>layers</code> representing transferred Bits in readable contents for us.</p>
 <p><img src="https://academy.hackthebox.com/storage/modules/34/redesigned/net_models4.png" alt="Model_Layers"></p>
 <hr>
@@ -163,6 +172,7 @@ The term <code>OSI</code> stands for <code>Open Systems Interconnection</code> m
 <p><img src="https://academy.hackthebox.com/storage/modules/34/packet_transfer.png" alt="Diagram of packet transfer showing data encapsulation from sender to receiver through layers: Data, TCP, IP, MAC, and Binary Transmission, with corresponding headers and sequence."></p>
 <p>For us, as penetration testers, both reference models are useful. With <code>TCP/IP</code>, we can quickly understand how the entire connection is established, and with <code>ISO</code>, we can take it apart piece by piece and analyze it in detail. This often happens when we can listen to and intercept specific network traffic. We then have to analyze this traffic accordingly, going into more detail in the <code>Network Traffic Analysis</code> module. Therefore, we should familiarize ourselves with both reference models and understand and internalize them in the best possible way.</p>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>

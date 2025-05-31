@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">Separating $HOME</h1>
-                <div class="note-content">
-                    <h2>Step 1: Mount the 1TB SSD</h2>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">Separating $HOME</div>
+                    </div>
+                    <div class="terminal-body">
+                        <h2>Step 1: Mount the 1TB SSD</h2>
 <ul>
 <li>Prepare the 1TB SSD: You’ll need to format it with a filesystem like BTRFS.</li>
 </ul>
@@ -64,6 +73,7 @@ sudo mount /dev/sdX /mnt/home
 <pre><code class="language-bash">UUID=&lt;UUID of 1TB SSD&gt;  /home  btrfs  defaults  0  0
 </code></pre>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>

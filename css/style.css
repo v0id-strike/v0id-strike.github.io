@@ -279,6 +279,115 @@ body {
     line-height: 1.6;
 }
 
+.terminal-body h1,
+.terminal-body h2,
+.terminal-body h3,
+.terminal-body h4,
+.terminal-body h5,
+.terminal-body h6 {
+    color: var(--neon);
+    margin: 1.5rem 0 1rem;
+    text-shadow: 0 0 5px var(--glow);
+}
+
+.terminal-body h1 { font-size: 1.8rem; }
+.terminal-body h2 { font-size: 1.6rem; }
+.terminal-body h3 { font-size: 1.4rem; }
+.terminal-body h4 { font-size: 1.2rem; }
+.terminal-body h5 { font-size: 1.1rem; }
+.terminal-body h6 { font-size: 1rem; }
+
+.terminal-body p {
+    margin-bottom: 1rem;
+}
+
+.terminal-body code {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--neon);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid var(--neon);
+}
+
+.terminal-body pre {
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid var(--neon);
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.terminal-body pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text);
+}
+
+.terminal-body blockquote {
+    border-left: 3px solid var(--neon);
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.terminal-body ul,
+.terminal-body ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.terminal-body li {
+    margin-bottom: 0.5rem;
+}
+
+.terminal-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border: 1px solid var(--neon);
+}
+
+.terminal-body th,
+.terminal-body td {
+    padding: 0.75rem;
+    border: 1px solid var(--neon);
+    text-align: left;
+}
+
+.terminal-body th {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--neon);
+    font-weight: 600;
+}
+
+.terminal-body tr:nth-child(even) {
+    background: rgba(255, 0, 0, 0.05);
+}
+
+.terminal-body a {
+    color: var(--neon);
+    text-decoration: none;
+    border-bottom: 1px solid var(--neon);
+    transition: all 0.3s ease;
+}
+
+.terminal-body a:hover {
+    text-shadow: 0 0 10px var(--glow);
+    border-bottom-color: transparent;
+}
+
+.terminal-body img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--neon);
+    margin: 1rem 0;
+    box-shadow: 0 0 10px var(--glow);
+}
+
 /* Tree View Styles */
 .tree-view {
     color: var(--text);

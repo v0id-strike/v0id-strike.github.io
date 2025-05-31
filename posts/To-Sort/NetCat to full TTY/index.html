@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">NetCat to Full TTY</h1>
-                <div class="note-content">
-                    <p>Every pentester knows that amazing feeling when they catch a reverse shell with netcat and see that oh-so-satisfying verbose netcat message followed by output from <code>id</code>.</p>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">NetCat to Full TTY</div>
+                    </div>
+                    <div class="terminal-body">
+                        <p>Every pentester knows that amazing feeling when they catch a reverse shell with netcat and see that oh-so-satisfying verbose netcat message followed by output from <code>id</code>.</p>
 <p>And if other pentesters are like me, they also know that dreadful feeling when their shell is lost because they run a bad command that hangs and accidentally hit “Ctrl-C” thinking it will stop it but it instead kills the entire connection.</p>
 <p><a href="https://blog.ropnop.com/images/2017/07/oops_ctrl_c.png"><img src="https://blog.ropnop.com/images/2017/07/oops_ctrl_c.png" alt="Oops!"></a></p>
 <p>Besides not correctly handling SIGINT, these&quot;dumb” shells have other shortcomings as well:</p>
@@ -263,6 +272,7 @@
 </tbody>
 </table>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>

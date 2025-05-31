@@ -32,8 +32,17 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">SSH</h1>
-                <div class="note-content">
-                    <h3>On Each Lab PC</h3>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">SSH</div>
+                    </div>
+                    <div class="terminal-body">
+                        <h3>On Each Lab PC</h3>
 <ol>
 <li><strong>Install the OpenSSH server</strong><br>
 Most distros already have this, but confirm:</li>
@@ -103,6 +112,7 @@ sudo firewall-cmd --reload
 done
 </code></pre>
 
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">May 29, 2025</span>
