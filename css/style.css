@@ -103,10 +103,34 @@ body {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.static-text {
     background: linear-gradient(to right, var(--text), var(--neon));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 1.2;
+}
+
+.dynamic-text {
+    color: var(--accent-primary);
+    min-width: 300px;
+    position: relative;
+}
+
+.dynamic-text::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .hero-description {
