@@ -1,3 +1,4 @@
+// Typewriter effect configuration
 const texts = ['Red Teamer', 'Malware Developer', 'Student', 'Bored'];
 const dynamicText = document.querySelector('.dynamic-text');
 let textIndex = 0;
@@ -8,6 +9,8 @@ let erasingDelay = 50;
 let newTextDelay = 2000;
 
 function type() {
+    if (!dynamicText) return; // Guard clause in case element isn't found
+    
     const currentText = texts[textIndex];
     
     if (isDeleting) {
@@ -32,6 +35,12 @@ function type() {
     setTimeout(type, typingDelay);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(type, newTextDelay);
-}); 
+// Initialize the typewriter effect
+function initTypewriter() {
+    if (dynamicText) {
+        setTimeout(type, newTextDelay);
+    }
+}
+
+// Start the typewriter effect when the script loads
+initTypewriter(); 
