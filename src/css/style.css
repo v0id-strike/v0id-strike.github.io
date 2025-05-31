@@ -1,9 +1,9 @@
 :root {
     --void: #0a0a0a;
-    --text: #00ff00;
+    --text: #4dff4d;
     --accent: #1a1a1a;
-    --neon: #ff0000;
-    --glow: rgba(255, 0, 0, 0.4);
+    --neon: #ff3333;
+    --glow: rgba(255, 51, 51, 0.2);
     --background: 0 0% 4%;
     --foreground: 120 100% 50%;
     --card: 0 0% 4%;
@@ -55,12 +55,12 @@
 }
 
 body {
-    background-color: var(--void);
-    color: var(--text);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
     overflow-x: hidden;
-    text-shadow: 0 0 5px var(--glow);
+    text-shadow: 0 0 5px var(--shadow-glow);
 }
 
 .container {
@@ -125,9 +125,9 @@ body {
     z-index: 100;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--neon);
+    border-bottom: 1px solid var(--border-accent);
     padding: 1rem 0;
-    box-shadow: 0 0 20px var(--glow);
+    box-shadow: 0 0 20px var(--shadow-glow);
 }
 
 .nav-container {
@@ -142,7 +142,7 @@ body {
 }
 
 .nav-link {
-    color: var(--text);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s;
@@ -150,7 +150,7 @@ body {
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 5px var(--glow);
+    text-shadow: 0 0 5px var(--shadow-glow);
 }
 
 .nav-link::after {
@@ -160,14 +160,14 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--neon);
+    background: var(--accent-primary);
     transition: width 0.3s;
-    box-shadow: 0 0 10px var(--glow);
+    box-shadow: 0 0 10px var(--shadow-glow);
 }
 
 .nav-link:hover {
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--glow);
+    color: var(--accent-primary);
+    text-shadow: 0 0 10px var(--shadow-glow);
 }
 
 .nav-link:hover::after {
@@ -232,10 +232,10 @@ body {
 .terminal-container {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--neon);
+    border: 1px solid var(--accent-primary);
     box-shadow: 
-        0 0 20px rgba(255, 0, 0, 0.15),
-        inset 0 0 20px rgba(255, 0, 0, 0.05);
+        0 0 20px var(--shadow-color),
+        inset 0 0 20px var(--shadow-glow);
     font-family: 'JetBrains Mono', monospace;
     margin: 2rem 0;
     overflow: hidden;
@@ -247,7 +247,7 @@ body {
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--neon);
+    border-bottom: 1px solid var(--accent-primary);
 }
 
 .terminal-buttons {
@@ -267,7 +267,7 @@ body {
 .terminal-button.green { background: #33cc33; }
 
 .terminal-title {
-    color: var(--text);
+    color: var(--text-primary);
     margin-left: 1rem;
     font-size: 0.8rem;
     opacity: 0.9;
@@ -277,6 +277,7 @@ body {
     padding: 1.5rem;
     font-size: 0.9rem;
     line-height: 1.6;
+    color: var(--text-primary);
     overflow-x: auto;
 }
 
@@ -303,12 +304,12 @@ body {
 }
 
 .terminal-body code {
-    background: rgba(255, 0, 0, 0.1);
-    color: var(--neon);
+    background: var(--accent-muted);
+    color: var(--accent-primary);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-family: 'JetBrains Mono', monospace;
-    border: 1px solid var(--neon);
+    border: 1px solid var(--border-accent);
 }
 
 .terminal-body pre {
@@ -370,36 +371,35 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 1rem 0;
-    border: 1px solid var(--neon);
+    border: 1px solid var(--border-accent);
 }
 
 .terminal-body th,
 .terminal-body td {
     padding: 0.75rem;
-    border: 1px solid var(--neon);
+    border: 1px solid var(--border-accent);
     text-align: left;
 }
 
 .terminal-body th {
-    background: rgba(255, 0, 0, 0.1);
-    color: var(--neon);
+    background: var(--accent-muted);
+    color: var(--accent-primary);
     font-weight: 600;
 }
 
 .terminal-body tr:nth-child(even) {
-    background: rgba(255, 0, 0, 0.05);
+    background: var(--accent-muted);
 }
 
 .terminal-body a {
-    color: var(--neon);
+    color: var(--accent-primary);
     text-decoration: none;
-    border-bottom: 1px solid var(--neon);
     transition: all 0.3s ease;
 }
 
 .terminal-body a:hover {
-    text-shadow: 0 0 10px var(--glow);
-    border-bottom-color: transparent;
+    color: var(--accent-secondary);
+    text-shadow: 0 0 8px var(--shadow-glow);
 }
 
 .terminal-body img {
@@ -478,10 +478,10 @@ body {
 /* Footer */
 .footer {
     background: rgba(10, 10, 10, 0.95);
-    border-top: 1px solid var(--neon);
+    border-top: 1px solid var(--border-accent);
     padding: 3rem 0;
     margin-top: 6rem;
-    box-shadow: 0 0 20px var(--glow);
+    box-shadow: 0 0 20px var(--shadow-glow);
 }
 
 .footer-content {
@@ -496,7 +496,7 @@ body {
 }
 
 .social-link {
-    color: var(--text);
+    color: var(--text-primary);
     text-decoration: none;
     transition: all 0.3s;
     font-family: 'JetBrains Mono', monospace;
@@ -504,12 +504,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    text-shadow: 0 0 5px var(--glow);
+    text-shadow: 0 0 5px var(--shadow-glow);
 }
 
 .social-link:hover {
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--glow);
+    color: var(--accent-primary);
+    text-shadow: 0 0 10px var(--shadow-glow);
 }
 
 .link-icon {
@@ -696,13 +696,8 @@ body::after {
 
 /* Notes Section */
 .notes-container {
-    background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--neon);
-    border-radius: 4px;
     padding: 2rem;
     margin: 2rem 0;
-    box-shadow: 0 0 20px var(--glow);
     position: relative;
     overflow: hidden;
 }
@@ -721,7 +716,7 @@ body::after {
 
 .note {
     background: rgba(10, 10, 10, 0.9);
-    border: 1px solid var(--text);
+    border: 1px solid var(--border-primary);
     border-radius: 4px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -731,20 +726,20 @@ body::after {
 
 .note:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 15px var(--glow);
-    border-color: var(--neon);
+    box-shadow: 0 0 15px var(--shadow-glow);
+    border-color: var(--accent-primary);
 }
 
 .note-title {
-    color: var(--neon);
+    color: var(--accent-primary);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 0 0 5px var(--glow);
+    text-shadow: 0 0 5px var(--shadow-glow);
 }
 
 .note-content {
-    color: var(--text);
+    color: var(--text-primary);
     line-height: 1.8;
     font-size: 1.1rem;
 }
