@@ -1,33 +1,9 @@
 :root {
-    /* Base colors */
     --void: #0a0a0a;
-    --text: #4dff4d;  /* Softer green */
+    --text: #00ff00;
     --accent: #1a1a1a;
-    --neon: #ff3333;  /* Softer red */
-    --glow: rgba(255, 51, 51, 0.2);  /* Reduced opacity */
-    
-    /* Text colors */
-    --text-primary: #4dff4d;
-    --text-secondary: #80ff80;  /* Lighter green for secondary text */
-    --text-muted: #66cc66;  /* Muted green */
-    
-    /* Background colors */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #262626;
-    
-    /* Accent colors */
-    --accent-primary: #ff3333;
-    --accent-secondary: #ff6666;
-    --accent-muted: rgba(255, 51, 51, 0.1);
-    
-    /* Border colors */
-    --border-primary: #333333;
-    --border-accent: #ff3333;
-    
-    /* Shadow colors */
-    --shadow-color: rgba(255, 51, 51, 0.15);
-    --shadow-glow: rgba(255, 51, 51, 0.1);
+    --neon: #ff0000;
+    --glow: rgba(255, 0, 0, 0.4);
     --background: 0 0% 4%;
     --foreground: 120 100% 50%;
     --card: 0 0% 4%;
@@ -44,6 +20,7 @@
     --accent-foreground: 120 100% 50%;
     --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 4%;
+    --border: 0 0% 10%;
     --input: 0 0% 10%;
     --ring: 120 100% 50%;
     --radius: 0;
@@ -78,12 +55,12 @@
 }
 
 body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--void);
+    color: var(--text);
     font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
     overflow-x: hidden;
-    text-shadow: 0 0 5px var(--shadow-glow);
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .container {
@@ -99,7 +76,6 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background-color: var(--bg-primary);
 }
 
 .hero::before {
@@ -110,9 +86,9 @@ body {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at center, var(--accent-muted) 0%, transparent 70%),
-        linear-gradient(45deg, var(--accent-muted) 25%, transparent 25%),
-        linear-gradient(-45deg, var(--accent-muted) 25%, transparent 25%);
+        radial-gradient(circle at center, rgba(255, 51, 51, 0.15) 0%, transparent 70%),
+        linear-gradient(45deg, rgba(255, 51, 51, 0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 51, 51, 0.05) 25%, transparent 25%);
     pointer-events: none;
     animation: heroPulse 8s ease-in-out infinite;
 }
@@ -127,34 +103,10 @@ body {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.static-text {
     background: linear-gradient(to right, var(--text), var(--neon));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.dynamic-text {
-    color: var(--accent-primary);
-    min-width: 300px;
-    position: relative;
-}
-
-.dynamic-text::after {
-    content: '|';
-    position: absolute;
-    right: -8px;
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    line-height: 1.2;
 }
 
 .hero-description {
@@ -173,9 +125,9 @@ body {
     z-index: 100;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-accent);
+    border-bottom: 1px solid var(--neon);
     padding: 1rem 0;
-    box-shadow: 0 0 20px var(--shadow-glow);
+    box-shadow: 0 0 20px var(--glow);
 }
 
 .nav-container {
@@ -190,7 +142,7 @@ body {
 }
 
 .nav-link {
-    color: var(--text-primary);
+    color: var(--text);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s;
@@ -198,7 +150,7 @@ body {
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 5px var(--shadow-glow);
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .nav-link::after {
@@ -208,14 +160,14 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-primary);
+    background: var(--neon);
     transition: width 0.3s;
-    box-shadow: 0 0 10px var(--shadow-glow);
+    box-shadow: 0 0 10px var(--glow);
 }
 
 .nav-link:hover {
-    color: var(--accent-primary);
-    text-shadow: 0 0 10px var(--shadow-glow);
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .nav-link:hover::after {
@@ -280,10 +232,10 @@ body {
 .terminal-container {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--accent-primary);
+    border: 1px solid var(--neon);
     box-shadow: 
-        0 0 20px var(--shadow-color),
-        inset 0 0 20px var(--shadow-glow);
+        0 0 20px rgba(255, 0, 0, 0.15),
+        inset 0 0 20px rgba(255, 0, 0, 0.05);
     font-family: 'JetBrains Mono', monospace;
     margin: 2rem 0;
     overflow: hidden;
@@ -295,7 +247,7 @@ body {
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--accent-primary);
+    border-bottom: 1px solid var(--neon);
 }
 
 .terminal-buttons {
@@ -315,7 +267,7 @@ body {
 .terminal-button.green { background: #33cc33; }
 
 .terminal-title {
-    color: var(--text-primary);
+    color: var(--text);
     margin-left: 1rem;
     font-size: 0.8rem;
     opacity: 0.9;
@@ -325,7 +277,6 @@ body {
     padding: 1.5rem;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--text-primary);
     overflow-x: auto;
 }
 
@@ -352,12 +303,12 @@ body {
 }
 
 .terminal-body code {
-    background: var(--accent-muted);
-    color: var(--accent-primary);
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--neon);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-family: 'JetBrains Mono', monospace;
-    border: 1px solid var(--border-accent);
+    border: 1px solid var(--neon);
 }
 
 .terminal-body pre {
@@ -419,35 +370,36 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 1rem 0;
-    border: 1px solid var(--border-accent);
+    border: 1px solid var(--neon);
 }
 
 .terminal-body th,
 .terminal-body td {
     padding: 0.75rem;
-    border: 1px solid var(--border-accent);
+    border: 1px solid var(--neon);
     text-align: left;
 }
 
 .terminal-body th {
-    background: var(--accent-muted);
-    color: var(--accent-primary);
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--neon);
     font-weight: 600;
 }
 
 .terminal-body tr:nth-child(even) {
-    background: var(--accent-muted);
+    background: rgba(255, 0, 0, 0.05);
 }
 
 .terminal-body a {
-    color: var(--accent-primary);
+    color: var(--neon);
     text-decoration: none;
+    border-bottom: 1px solid var(--neon);
     transition: all 0.3s ease;
 }
 
 .terminal-body a:hover {
-    color: var(--accent-secondary);
-    text-shadow: 0 0 8px var(--shadow-glow);
+    text-shadow: 0 0 10px var(--glow);
+    border-bottom-color: transparent;
 }
 
 .terminal-body img {
@@ -526,10 +478,10 @@ body {
 /* Footer */
 .footer {
     background: rgba(10, 10, 10, 0.95);
-    border-top: 1px solid var(--border-accent);
+    border-top: 1px solid var(--neon);
     padding: 3rem 0;
     margin-top: 6rem;
-    box-shadow: 0 0 20px var(--shadow-glow);
+    box-shadow: 0 0 20px var(--glow);
 }
 
 .footer-content {
@@ -544,7 +496,7 @@ body {
 }
 
 .social-link {
-    color: var(--text-primary);
+    color: var(--text);
     text-decoration: none;
     transition: all 0.3s;
     font-family: 'JetBrains Mono', monospace;
@@ -552,12 +504,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    text-shadow: 0 0 5px var(--shadow-glow);
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .social-link:hover {
-    color: var(--accent-primary);
-    text-shadow: 0 0 10px var(--shadow-glow);
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 .link-icon {
@@ -626,10 +578,10 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(90deg, var(--accent-primary) 1px, transparent 1px) 0 0 / 20px 20px,
-        linear-gradient(0deg, var(--accent-primary) 1px, transparent 1px) 0 0 / 20px 20px;
-    background-color: var(--bg-primary);
-    opacity: 0.05;
+        linear-gradient(90deg, var(--neon) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, var(--neon) 1px, transparent 1px) 0 0 / 20px 20px;
+    background-color: var(--void);
+    opacity: 0.1;
     z-index: -1;
     animation: gridMove 20s linear infinite;
 }
@@ -643,7 +595,7 @@ body::after {
     height: 100%;
     background: 
         radial-gradient(circle at 50% 50%, 
-            var(--accent-muted) 0%,
+            rgba(255, 0, 0, 0.1) 0%,
             transparent 50%);
     z-index: -1;
     animation: pulse 4s ease-in-out infinite;
@@ -690,8 +642,8 @@ body::after {
     pointer-events: none;
     z-index: 1;
     background: 
-        linear-gradient(90deg, var(--accent-muted) 1px, transparent 1px) 0 0 / 20px 20px,
-        linear-gradient(0deg, var(--accent-muted) 1px, transparent 1px) 0 0 / 20px 20px;
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
     animation: overlayPulse 4s ease-in-out infinite;
 }
 
@@ -744,8 +696,13 @@ body::after {
 
 /* Notes Section */
 .notes-container {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon);
+    border-radius: 4px;
     padding: 2rem;
     margin: 2rem 0;
+    box-shadow: 0 0 20px var(--glow);
     position: relative;
     overflow: hidden;
 }
@@ -764,7 +721,7 @@ body::after {
 
 .note {
     background: rgba(10, 10, 10, 0.9);
-    border: 1px solid var(--border-primary);
+    border: 1px solid var(--text);
     border-radius: 4px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -774,20 +731,20 @@ body::after {
 
 .note:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 15px var(--shadow-glow);
-    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px var(--glow);
+    border-color: var(--neon);
 }
 
 .note-title {
-    color: var(--accent-primary);
+    color: var(--neon);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 0 0 5px var(--shadow-glow);
+    text-shadow: 0 0 5px var(--glow);
 }
 
 .note-content {
-    color: var(--text-primary);
+    color: var(--text);
     line-height: 1.8;
     font-size: 1.1rem;
 }
