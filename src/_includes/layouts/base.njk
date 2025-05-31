@@ -32,8 +32,18 @@
         <div class="notes-container">
             <article class="note">
                 <h1 class="note-title">{{ title }}</h1>
-                <div class="note-content">
-                    {{ content | safe }}
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">{{ title }}</div>
+                    </div>
+                    <div class="terminal-body">
+                        {{ content | safe }}
+                    </div>
                 </div>
                 <div class="note-meta">
                     <span class="note-date">{{ date | date("YYYY-MM-DD") }}</span>
