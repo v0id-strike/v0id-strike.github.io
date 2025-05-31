@@ -107,6 +107,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
 }
 
 .static-text {
@@ -122,10 +123,15 @@ body {
 }
 
 .dynamic-text::after {
-    content: '|';
+    content: '';
     position: absolute;
-    right: -8px;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-primary);
     animation: blink 1s step-end infinite;
+    box-shadow: 0 0 10px var(--shadow-glow);
 }
 
 @keyframes blink {
