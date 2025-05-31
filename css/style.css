@@ -1,9 +1,33 @@
 :root {
+    /* Base colors */
     --void: #0a0a0a;
-    --text: #4dff4d;
+    --text: #4dff4d;  /* Softer green */
     --accent: #1a1a1a;
-    --neon: #ff3333;
-    --glow: rgba(255, 51, 51, 0.2);
+    --neon: #ff3333;  /* Softer red */
+    --glow: rgba(255, 51, 51, 0.2);  /* Reduced opacity */
+    
+    /* Text colors */
+    --text-primary: #4dff4d;
+    --text-secondary: #80ff80;  /* Lighter green for secondary text */
+    --text-muted: #66cc66;  /* Muted green */
+    
+    /* Background colors */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #262626;
+    
+    /* Accent colors */
+    --accent-primary: #ff3333;
+    --accent-secondary: #ff6666;
+    --accent-muted: rgba(255, 51, 51, 0.1);
+    
+    /* Border colors */
+    --border-primary: #333333;
+    --border-accent: #ff3333;
+    
+    /* Shadow colors */
+    --shadow-color: rgba(255, 51, 51, 0.15);
+    --shadow-glow: rgba(255, 51, 51, 0.1);
     --background: 0 0% 4%;
     --foreground: 120 100% 50%;
     --card: 0 0% 4%;
@@ -20,7 +44,6 @@
     --accent-foreground: 120 100% 50%;
     --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 4%;
-    --border: 0 0% 10%;
     --input: 0 0% 10%;
     --ring: 120 100% 50%;
     --radius: 0;
@@ -76,6 +99,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+    background-color: var(--bg-primary);
 }
 
 .hero::before {
@@ -86,9 +110,9 @@ body {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at center, rgba(255, 51, 51, 0.15) 0%, transparent 70%),
-        linear-gradient(45deg, rgba(255, 51, 51, 0.05) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255, 51, 51, 0.05) 25%, transparent 25%);
+        radial-gradient(circle at center, var(--accent-muted) 0%, transparent 70%),
+        linear-gradient(45deg, var(--accent-muted) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--accent-muted) 25%, transparent 25%);
     pointer-events: none;
     animation: heroPulse 8s ease-in-out infinite;
 }
@@ -602,10 +626,10 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(90deg, var(--neon) 1px, transparent 1px) 0 0 / 20px 20px,
-        linear-gradient(0deg, var(--neon) 1px, transparent 1px) 0 0 / 20px 20px;
-    background-color: var(--void);
-    opacity: 0.1;
+        linear-gradient(90deg, var(--accent-primary) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, var(--accent-primary) 1px, transparent 1px) 0 0 / 20px 20px;
+    background-color: var(--bg-primary);
+    opacity: 0.05;
     z-index: -1;
     animation: gridMove 20s linear infinite;
 }
@@ -619,7 +643,7 @@ body::after {
     height: 100%;
     background: 
         radial-gradient(circle at 50% 50%, 
-            rgba(255, 0, 0, 0.1) 0%,
+            var(--accent-muted) 0%,
             transparent 50%);
     z-index: -1;
     animation: pulse 4s ease-in-out infinite;
@@ -666,8 +690,8 @@ body::after {
     pointer-events: none;
     z-index: 1;
     background: 
-        linear-gradient(90deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
-        linear-gradient(0deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
+        linear-gradient(90deg, var(--accent-muted) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, var(--accent-muted) 1px, transparent 1px) 0 0 / 20px 20px;
     animation: overlayPulse 4s ease-in-out infinite;
 }
 
