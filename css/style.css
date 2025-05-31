@@ -562,3 +562,94 @@ body::after {
     color: var(--neon);
     margin-right: 0.5rem;
 }
+
+/* Notes Section */
+.notes-container {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 20px var(--glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.notes-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255, 0, 0, 0.05) 25%, transparent 25%);
+    pointer-events: none;
+}
+
+.note {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid var(--text);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.note:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--glow);
+    border-color: var(--neon);
+}
+
+.note-title {
+    color: var(--neon);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px var(--glow);
+}
+
+.note-content {
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.note-meta {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 0, 0, 0.2);
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.note-date {
+    color: var(--neon);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.note-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.note-tag {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--neon);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    border: 1px solid var(--neon);
+    transition: all 0.3s ease;
+}
+
+.note-tag:hover {
+    background: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 10px var(--glow);
+}
