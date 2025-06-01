@@ -1018,31 +1018,32 @@ h3.my-profession {
 .notes-tree li::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0.6em;
-    width: 0.7em;
-    height: 0.7em;
-    border-left: 1px solid var(--skin-color); /* Use red for lines */
-    border-bottom: 1px solid var(--skin-color); /* Use red for lines */
-    margin-right: 0.5em;
+    left: -1.2em; /* Adjust left position relative to list item */
+    top: 0.9em; /* Adjust vertical alignment of the horizontal line */
+    width: 1em; /* Set width of the horizontal line */
+    height: 0; /* No height needed for the connector line */
+    border-left: 1px solid var(--skin-color); /* Vertical part of connector */
+    border-bottom: 1px solid var(--skin-color); /* Horizontal part of connector */
+    /* margin-right: 0.5em; Remove ineffective margin */
 }
 
 .notes-tree li:last-child::before {
-    border-left: none;
+    border-left: none; /* Removes the vertical part for the last item in a branch */
 }
 
 .notes-tree li::after {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: var(--skin-color); /* Use red for vertical line */
+    left: -1.2em; /* Align vertical line with horizontal connector start */
+    top: 0; /* Start vertical line at the top of the list item */
+    bottom: 0; /* Extend vertical line to the bottom of the list item */
+    width: 1px; /* Width of the vertical line */
+    background-color: var(--skin-color); /* Color of the vertical line */
 }
 
 .notes-tree li:last-child::after {
-    height: 0.6em; /* Adjust height to stop at the last item's connector */
+    /* height: 0.6em; */ /* Adjust height to stop at the last item's connector */
+    height: 0.9em; /* Adjust height to stop at the horizontal connector line */
 }
 
 .notes-tree ul ul {
