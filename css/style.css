@@ -1002,3 +1002,57 @@ h3.my-profession {
     opacity: 1;
   }
 }
+
+.notes-tree ul {
+    list-style: none;
+    padding-left: 1.5em; /* Adjust indentation as needed */
+}
+
+.notes-tree li {
+    position: relative;
+    padding-left: 1em;
+    margin-bottom: 0.5em;
+}
+
+.notes-tree li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.7em;
+    height: 0.7em;
+    border-left: 1px solid #555; /* Adjust color as needed */
+    border-bottom: 1px solid #555; /* Adjust color as needed */
+    margin-right: 0.5em;
+}
+
+.notes-tree li:last-child::before {
+    border-left: none;
+}
+
+.notes-tree li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #555; /* Adjust color as needed */
+}
+
+.notes-tree li:last-child::after {
+    height: 0.6em; /* Adjust height to stop at the last item's connector */
+}
+
+.notes-tree ul ul {
+    padding-left: 1.5em; /* Consistent indentation for nested lists */
+}
+
+.notes-tree a {
+    text-decoration: none;
+    color: inherit; /* Or your preferred link color */
+}
+
+.notes-tree a:hover {
+    text-decoration: underline;
+}
