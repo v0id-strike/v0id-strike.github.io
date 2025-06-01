@@ -2,8 +2,8 @@
     --void: #0a0a0a;
     --text: #00ff00;
     --accent: #1a1a1a;
-    --neon: #ff0000;
-    --glow: rgba(255, 0, 0, 0.4);
+    --neon: #00cfff;
+    --glow: rgba(0, 207, 255, 0.4);
     --background: 0 0% 4%;
     --foreground: 120 100% 50%;
     --card: 0 0% 4%;
@@ -86,9 +86,9 @@ body {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at center, rgba(255, 51, 51, 0.15) 0%, transparent 70%),
-        linear-gradient(45deg, rgba(255, 51, 51, 0.05) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255, 51, 51, 0.05) 25%, transparent 25%);
+        radial-gradient(circle at center, rgba(0, 207, 255, 0.15) 0%, transparent 70%),
+        linear-gradient(45deg, rgba(0, 207, 255, 0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 207, 255, 0.05) 25%, transparent 25%);
     pointer-events: none;
     animation: heroPulse 8s ease-in-out infinite;
 }
@@ -199,8 +199,8 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid var(--neon);
     box-shadow: 
-        0 0 20px rgba(255, 0, 0, 0.1),
-        inset 0 0 20px rgba(255, 0, 0, 0.05);
+        0 0 20px rgba(0, 207, 255, 0.1),
+        inset 0 0 20px rgba(0, 207, 255, 0.05);
     border-radius: 0;
     padding: 2rem;
     transition: all 0.3s;
@@ -209,8 +209,8 @@ body {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 
-        0 10px 30px rgba(255, 0, 0, 0.2),
-        inset 0 0 30px rgba(255, 0, 0, 0.1);
+        0 10px 30px rgba(0, 207, 255, 0.2),
+        inset 0 0 30px rgba(0, 207, 255, 0.1);
     border-color: var(--neon);
 }
 
@@ -234,8 +234,8 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid var(--neon);
     box-shadow: 
-        0 0 20px rgba(255, 0, 0, 0.15),
-        inset 0 0 20px rgba(255, 0, 0, 0.05);
+        0 0 20px rgba(0, 207, 255, 0.15),
+        inset 0 0 20px rgba(0, 207, 255, 0.05);
     font-family: 'JetBrains Mono', monospace;
     margin: 2rem 0;
     overflow: hidden;
@@ -303,7 +303,7 @@ body {
 }
 
 .terminal-body code {
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(0, 207, 255, 0.1);
     color: var(--neon);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
@@ -331,7 +331,7 @@ body {
     border-left: 3px solid var(--neon);
     margin: 1rem 0;
     padding: 0.5rem 1rem;
-    background: rgba(255, 0, 0, 0.05);
+    background: rgba(0, 207, 255, 0.05);
     box-shadow: 0 0 10px var(--glow);
 }
 
@@ -381,13 +381,13 @@ body {
 }
 
 .terminal-body th {
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(0, 207, 255, 0.1);
     color: var(--neon);
     font-weight: 600;
 }
 
 .terminal-body tr:nth-child(even) {
-    background: rgba(255, 0, 0, 0.05);
+    background: rgba(0, 207, 255, 0.05);
 }
 
 .terminal-body a {
@@ -595,7 +595,7 @@ body::after {
     height: 100%;
     background: 
         radial-gradient(circle at 50% 50%, 
-            rgba(255, 0, 0, 0.1) 0%,
+            rgba(0, 207, 255, 0.1) 0%,
             transparent 50%);
     z-index: -1;
     animation: pulse 4s ease-in-out infinite;
@@ -642,8 +642,8 @@ body::after {
     pointer-events: none;
     z-index: 1;
     background: 
-        linear-gradient(90deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
-        linear-gradient(0deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
+        linear-gradient(90deg, rgba(0, 207, 255, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(0deg, rgba(0, 207, 255, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
     animation: overlayPulse 4s ease-in-out infinite;
 }
 
@@ -708,8 +708,8 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(255, 0, 0, 0.05) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(255, 0, 0, 0.05) 25%, transparent 25%);
+    background: linear-gradient(45deg, rgba(0, 207, 255, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(0, 207, 255, 0.05) 25%, transparent 25%);
     pointer-events: none;
 }
 
@@ -739,7 +739,7 @@ body::after {
 .note-meta {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255, 0, 0, 0.2);
+    border-top: 1px solid rgba(0, 207, 255, 0.2);
     color: var(--text);
     opacity: 0.8;
     font-size: 0.9rem;
@@ -758,7 +758,7 @@ body::after {
 }
 
 .note-tag {
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(0, 207, 255, 0.1);
     color: var(--neon);
     padding: 0.2rem 0.6rem;
     border-radius: 3px;
@@ -768,6 +768,6 @@ body::after {
 }
 
 .note-tag:hover {
-    background: rgba(255, 0, 0, 0.2);
+    background: rgba(0, 207, 255, 0.2);
     box-shadow: 0 0 10px var(--glow);
 }
