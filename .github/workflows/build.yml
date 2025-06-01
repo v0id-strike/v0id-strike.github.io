@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # No separate build step needed for vanilla HTML/CSS/JS
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # Deploy files from the root directory
+          publish_branch: gh-pages
+          # Add a command to ensure the .nojekyll file exists in the gh-pages branch
+          # This is often needed for static sites that don't use Jekyll
+          cname: '' # Add this line if you are using a custom domain and have a CNAME file in your repo
