@@ -1,522 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Void-Strike's Cyber Security Journey">
-    <title>Void-Strike</title>
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    <link rel="manifest" href="/images/site.webmanifest">
-    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#ff0000"
-    <meta name="msapplication-TileColor" content="#0a0a0a">
-    <meta name="theme-color" content="#0a0a0a">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terukul Sai | Portfolio</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/skins/color-red.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style-switcher.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/sairedanon.png" />
 </head>
-<body>
-    <div class="tech-overlay"></div>
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="/" class="nav-logo">
-                <span class="logo-text">Void-Strike</span>
-                <span class="logo-cursor">_</span>
-            </a>
-            <div class="nav-links">
-                <a href="/" class="nav-link" data-text="Home">Home</a>
-                <a href="#notes" class="nav-link" data-text="Notes">Notes</a>
-                <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
-                <a href="#about" class="nav-link" data-text="About">About</a>
-            </div>
-        </div>
-    </nav>
 
-    <main>
-        
-        
-<section class="hero">
-    <div class="container hero-content animate-fade-in">
-        <h1 class="hero-title">Red Teamer & Malware Developer</h1>
-        <p class="hero-description">Just Studnet who is bored</p>
+<body class="dark">
+  <canvas id="matrixCanvas"></canvas>
+  <!-- Matrix -->
+  <script src="/js/matrix.js"></script>
+  <!-- Main Container Start -->
+  <div class="main-container">
+    <!-- Aside Start -->
+    <div class="aside">
+      <div class="logo">
+        <a href="index.html"><span>S</span>ai</a>
+      </div>
+      <div class="nav-toggler">
+        <span></span>
+      </div>
+      <ul class="nav">
+        <li>
+          <a href="#home" class="active"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about"><i class="fa fa-user"></i> About</a>
+        </li>
+        <li>
+          <a href="#education"><i class="fa fa-book"></i> Educations</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fa fa-comments"></i> Contact</a>
+        </li>
+
+      </ul>
     </div>
-</section>
+    <!-- Aside End -->
+    <!-- Main Content Start -->
+    <div class="main-content">
+      <!-- Home Section Start -->
+      <section class="home active section" id="home">
+        <div class="container">
+          <div class="row">
+            <div class="home-info padd-15">
+              <h3 class="hello"> 
+                Hello, i am <span class="name">V0ID-STRIKE</span>
+              </h3>
+              <h3 class="my-profession">
+                I'm a <span class="typing"></span>
+              </h3>
+              <p>Welcome to my portfolio! As and enthousiast student, I'm specialized in Red Team Hacking and Malware Development. I possess extensive knowledge of Coding, Pentesting, and System Administration. My goal is to learn and grow in the field of Cybersecurity.</p>
+            </div>
+            <div class="home-img padd-15">
+              <img src="images/void_strike.png" alt="hero" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Home Section End -->
 
-<section id="notes" class="section">
-    <div class="container">
-        <h2 class="section-title">Security Notes</h2>
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="terminal-button red"></span>
-                    <span class="terminal-button yellow"></span>
-                    <span class="terminal-button green"></span>
+      <!-- About Section Start -->
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>About Me</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="about-content padd-15">
+              <div class="row">
+                <div class="about-text padd-15">
+                  <h3>I'm bored of<span> humans&nbsp;&nbsp;</span></h3>
+                  <p>
+                    I love sitting in front of computer, learning, building, and breaking things.
+                  </p>
                 </div>
-                <span class="terminal-title">/notes</span>
-            </div>
-            <div class="terminal-body">
-                <div class="tree-view">
-                    
-                    
-                    
-                    
-                        
-                        
-                        
-                        
-                        
-                            
-                            <div class="tree-folder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">📁</span>
-                                    <span class="folder-name">Home-Lab</span>
-                                </div>
-                                <div class="tree-files">
-                            
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/1) Lab Overview/" class="file-link">Lab Overview</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/2) OpnSense/" class="file-link">OpnSense</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/3) BlackArch/" class="file-link">BlackArch</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/4) Arch/" class="file-link">Arch</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/5) Ubuntu Server/" class="file-link">Ubuntu Server</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/6) Fedora Server/" class="file-link">Fedora Server</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/7) HackMyVM/" class="file-link">Hack My VM</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Home-Lab/HackMyVM/Todd/" class="file-link">Todd</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                            
-                                </div>
-                            </div>
-                            
-                            <div class="tree-folder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">📁</span>
-                                    <span class="folder-name">Linux</span>
-                                </div>
-                                <div class="tree-files">
-                            
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/Introduction/" class="file-link">Introduction</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/The_Shell/" class="file-link">The Shell</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/Unix Commands/" class="file-link">Unix Commands</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/Seperating $HOME/" class="file-link">Separating $HOME</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/TimeShift/" class="file-link">TimeShift</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/VirtualBox/" class="file-link">Virtualbox</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Linux/ssh/" class="file-link">SSH</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                            
-                                </div>
-                            </div>
-                            
-                            <div class="tree-folder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">📁</span>
-                                    <span class="folder-name">Networking</span>
-                                </div>
-                                <div class="tree-files">
-                            
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Networking/1) Network Structure/" class="file-link">Network Structure</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Networking/2) Networking Workflow/" class="file-link">Networking Workflow</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Networking/3) Addressing/" class="file-link">Addressing</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Networking/4) Protocols &amp; Terminology/" class="file-link">Protocols &amp; Terminology</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Networking/5) Connection Establishment/" class="file-link">Connection Establishment</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                            
-                                </div>
-                            </div>
-                            
-                            <div class="tree-folder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">📁</span>
-                                    <span class="folder-name">Offensive</span>
-                                </div>
-                                <div class="tree-files">
-                            
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/Offensive/WiFi Cracking/" class="file-link">Wifi Cracking</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                            
-                                </div>
-                            </div>
-                            
-                            <div class="tree-folder">
-                                <div class="folder-header">
-                                    <span class="folder-icon">📁</span>
-                                    <span class="folder-name">To-Sort</span>
-                                </div>
-                                <div class="tree-files">
-                            
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/To-Sort/GPG-101/" class="file-link">GPG-101</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/To-Sort/Git Notes/" class="file-link">Git Notes</a>
-                            
-                        </div>
-                        
-                        
-                    
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tree-file">
-                            <span class="file-icon">└── 📄</span>
-                            <a href="/posts/To-Sort/NetCat to full TTY/" class="file-link">NetCat to Full TTY</a>
-                            
-                        </div>
-                        
-                        
-                            </div>
-                        </div>
-                        
-                    
+              </div>
+              <div class="row">
+                <div class="personal-info padd-15">
+                  <div class="row">
+                    <div class="info-item padd-15">
+                      <p>Birthday : 31/02/0000 {what did you expect? dox myself?}<span></span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Website : <span>Under Development</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Email : <span>your_mom@stripe.cum</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Degree : <span>Cyber Security</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Phone : <span>+01000111 01101111 00100000 01000110 01110101 01100011 01101011 00100000 01011001 01101111 01110101 01110010 01110011 01101100 01100101 01100110</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>City : <span>Fuck Around, Find Out</span></p>
+                    </div>
+                  </div>
                 </div>
+                <div class="skills padd-15">
+                  <div class="row">
+                    <div class="skills-item padd-15">
+                      <h5>System Administration</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 90%"></div>
+                        <div class="skill-percent">90%</div>
+                      </div>
+                    </div>
+                    <div class="skills-item padd-15">
+                      <h5>Coding</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 85%"></div>
+                        <div class="skill-percent">65%</div>
+                      </div>
+                    </div>
+                    <div class="skills-item padd-15">
+                      <h5>Pentesting</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 97%"></div>
+                        <div class="skill-percent">30%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
+      <!-- About Section End -->
 
-<section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="cards-grid">
-            <div class="card animate-fade-in">
-                <h3 class="card-title">Security Tools</h3>
-                <p class="card-description">Collection of custom security tools and scripts for penetration testing and analysis.</p>
+      <!-- Educations & Experience Section Start -->
+      <section class="education section" id="education">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Educations & Experience</h2>
             </div>
-            <div class="card animate-fade-in">
-                <h3 class="card-title">Research Papers</h3>
-                <p class="card-description">In-depth analysis and research on various cybersecurity topics and vulnerabilities.</p>
+          </div>
+          <div class="row">
+            <div class="education padd-15">
+              <h3 class="title">Education</h3>
+              <div class="row">
+                <div class="timeline-box padd-15">
+                  <div class="timeline shadow-dark">
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2023 - 2026
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ab vitae voluptatum, nobis earum magni quaerat quasi laborum omnis repellendus nostrum? Eveniet odio sapiente sit dolor temporibus repudiandae nostrum cupiditate.
+                      </p>
+                    </div>
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2023 - 2026
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ab vitae voluptatum, nobis earum magni quaerat quasi laborum omnis repellendus nostrum? Eveniet odio sapiente sit dolor temporibus repudiandae nostrum cupiditate.
+                      </p>
+                    </div>
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2023 - 2026
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ab vitae voluptatum, nobis earum magni quaerat quasi laborum omnis repellendus nostrum? Eveniet odio sapiente sit dolor temporibus repudiandae nostrum cupiditate.
+                      </p>
+                    </div>
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2023 - 2026
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ab vitae voluptatum, nobis earum magni quaerat quasi laborum omnis repellendus nostrum? Eveniet odio sapiente sit dolor temporibus repudiandae nostrum cupiditate.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card animate-fade-in">
-                <h3 class="card-title">CTF Writeups</h3>
-                <p class="card-description">Detailed solutions and walkthroughs for various Capture The Flag challenges.</p>
+            <div class="experience padd-15">
+              <h3 class="title">Experience</h3>
+              <div class="row">
+                <div class="timeline-box padd-15">
+                  <div class="timeline shadow-dark">
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2021
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint nesciunt consectetur repellendus sunt dolorem perferendis, hic tenetur necessitatibus voluptas cupiditate laudantium laboriosam, consequuntur unde facere. Beatae molestias dolorem at expedita.
+                      </p>
+                    </div>
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2021
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint nesciunt consectetur repellendus sunt dolorem perferendis, hic tenetur necessitatibus voluptas cupiditate laudantium laboriosam, consequuntur unde facere. Beatae molestias dolorem at expedita.
+                      </p>
+                    </div>
+                    <!-- Timeline item -->
+                    <div class="timeline-item">
+                      <div class="circle-dot"></div>
+                      <h3 class="timeline-date">
+                        <i class="fa fa-calendar"></i> 2021
+                      </h3>
+                      <h4 class="timeline-title">
+                        Master in Information Technology
+                      </h4>
+                      <p class="timeline-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint nesciunt consectetur repellendus sunt dolorem perferendis, hic tenetur necessitatibus voluptas cupiditate laudantium laboriosam, consequuntur unde facere. Beatae molestias dolorem at expedita.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-</section>
+          </div>
+          
+      </section>
+      <!-- Educations & Experience Section End -->
 
-<section id="about" class="section">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="card animate-fade-in">
-            <p class="card-description">
-                Cybersecurity student passionate about exploring new technologies and security challenges.
-                Focused on penetration testing, vulnerability research, and exploit development.
-            </p>
+      <!-- Contact Section Start -->
+      <section class="contact section" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Contact Me</h2>
+            </div>
+          </div>
+          <h3 class="contact-title padd-15">Do You Have Any Questions?</h3>
+          <h4 class="contact-sub-title padd-15">I'M AT YOUR education</h4>
+          <div class="row">
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-phone"></i></div>
+              <h4>Phone No.</h4>
+              <p>+91 1234567890</p>
+            </div>
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+              <h4>Location</h4>
+              <p>India</p>
+            </div>
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-envelope"></i></div>
+              <h4>Email</h4>
+              <p>info@gmail.com</p>
+            </div>
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-globe-europe"></i></div>
+              <h4>LinkedIn</h4>
+              <p><a href="#">sai127001/</a></p>
+            </div>
+          </div>
+          <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+          <h4 class="contact-sub-title padd-15">
+            I'M VERY RESPONSIVE TO MESSAGES
+          </h4>
+          <!-- Contact form -->
+          <div class="row">
+            <div class="contact-form padd-15">
+              <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" />
+                  </div>
+                </div>
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Subject" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <textarea class="form-control" placeholder="Message"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <button type="submit" class="btn">Send Message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
+      <!-- Contact Section End -->
     </div>
-</section>
-        
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <p class="footer-text">
-                    <span class="prompt">$</span> echo "© 2025 Void-Strike"
-                </p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/v0id-strike" class="social-link" target="_blank" rel="noopener" data-text="GitHub">
-                    <span class="link-icon">[</span>GitHub<span class="link-icon">]</span>
-                </a>
-                <a href="https://t.me/v0id_strike" class="social-link" target="_blank" rel="noopener" data-text="Telegram">
-                    <span class="link-icon">[</span>Telegram<span class="link-icon">]</span>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <!-- Main Content End -->
+  </div>
+  <!-- Main Container End -->
+  <!-- Custom JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+    referrerpolicy="no-referrer"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
