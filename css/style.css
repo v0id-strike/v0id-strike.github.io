@@ -1006,7 +1006,7 @@ h3.my-profession {
 .notes-tree ul {
     list-style: none;
     padding-left: 1.5em; /* Adjust indentation as needed */
-    color: var(--text-black-700); /* Text color for the tree */
+    color: var(--skin-color); /* Text color for the tree, now red */
 }
 
 .notes-tree li {
@@ -1022,8 +1022,8 @@ h3.my-profession {
     top: 0.6em;
     width: 0.7em;
     height: 0.7em;
-    border-left: 1px solid var(--text-black-700); /* Use text color for lines */
-    border-bottom: 1px solid var(--text-black-700); /* Use text color for lines */
+    border-left: 1px solid var(--skin-color); /* Use red for lines */
+    border-bottom: 1px solid var(--skin-color); /* Use red for lines */
     margin-right: 0.5em;
 }
 
@@ -1038,7 +1038,7 @@ h3.my-profession {
     top: 0;
     bottom: 0;
     width: 1px;
-    background-color: var(--text-black-700); /* Use text color for vertical line */
+    background-color: var(--skin-color); /* Use red for vertical line */
 }
 
 .notes-tree li:last-child::after {
@@ -1051,15 +1051,15 @@ h3.my-profession {
 
 .notes-tree a {
     text-decoration: none;
-    color: inherit; /* Inherit text color from parent li */
+    color: inherit; /* Inherit red text color from parent li */
 }
 
 .notes-tree a:hover {
     text-decoration: underline;
-    color: var(--skin-color); /* Red color on hover */
+    color: var(--text-black-900); /* Use a different color on hover for contrast, e.g., primary text color */
 }
 
 .notes-tree .folder-name {
     font-weight: bold;
-    color: var(--text-black-900); /* Use a darker color for folder names */
+    color: var(--skin-color); /* Use red for folder names */
 }
